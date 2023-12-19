@@ -1,0 +1,1514 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/respansive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!--refrence carousel-->
+    <link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <!--refrence lightbox video-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+</head>
+
+<body>
+    <div class="bg-close">
+    </div>
+    <header>
+        <nav class="area_navbar area_navbar-nonShdow">
+            <div class="container container_nav">
+                <div class="row area_search">
+                    <div
+                        class="col-10 col-sm-7 col-md-8 col-lg-9  d-flex justify-content-between align-items-center border-left">
+                        <form class="search-form d-flex w-100" method="get">
+                            <input type="text" class="form-control input_search " name="" value=""
+                                placeholder="دنبال چه میگردید">
+                            <button type="submit">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
+                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-2 col-sm-5 col-md-4 col-lg-3  d-flex  align-items-center justify-content-end ">
+                        <button class="btn custom-select custom-select-all-category  border-left d-none d-sm-block"
+                            type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">همه دست بندی
+                            ها</button>
+                        <div class="dropdown-menu dropdown-menu-all-category">
+                            <a class="dropdown-item" href="#">دیجیتال</a>
+                            <a class="dropdown-item" href="#">کیف</a>
+                            <a class="dropdown-item" href="#">کفش</a>
+                            <a class="dropdown-item" href="#">آرایشی و بهداشتی</a>
+                        </div>
+                        <button type="button" class="close close_search_header" aria-label="Close"
+                            data-dismiss="search_navbar">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="row d-flex justify-content-between align-items-center navbarr justify-content-md-between ju">
+                    <div class="col-4  col-md-3 d-block d-lg-none">
+                        <div class="icon_meni_bar ">
+                            <a class="d-block d-xl-none"><i class="fas fa-bars me-2"></i></a>
+                        </div>
+                    </div>
+                    <div id="menu_mobile" class="menu_mobile ">
+                        <div class="header_menu_mobile d-flex align-items-center">
+                            <button type="button" class="btn-close close_menu_mobile" aria-label="Close"></button>
+                            <img src="images/logosmal.png" />
+                        </div>
+                        <div class="area_menu_mobile menu-top-menu-container" id="accordian">
+                            <ul class="menu-multi-level">
+                                <li class="menu-item-has-children"><a href="#">صفحه اصلی </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">صفحه اصلی 1</a></li>
+                                        <li><a href="index2.html">صفحه اصلی 2</a></li>
+                                       <li><a href="index3.html">صفحه اصلی 3</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">صفحات</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li  class="menu-item-has-children"><a href="#">تماس با ما</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact.html"> طرح 1</a></li>
+                                                <li><a href="contacts-v2.html">طرح 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="account.html">حساب کاربری</a>
+                                        </li>
+                                        <li><a href="404.html">خطا 404</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">وبلاگ</a>
+                                    <ul class="sub-menu">
+                                        <li  class="menu-item-has-children"><a href="#">ساختمانی 
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-masonry-four-columns.html">چهار ستون </a>
+                                                </li>
+                                                <li><a href="blog-masonry-left-sidebar.html">نوار کناری سمت چپ </a></li>
+                                                <li><a href="blog-masonry-right-sidebar.html">نوار کناری سمت راست </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li  class="menu-item-has-children"><a href="#">جزییات وبلاگ </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-single-left-sidebar.html">پیش فرض</a></li>
+                                                <li><a href="blog-single-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-single.html">جزییات وبلاگ بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li  class="menu-item-has-children"><a href="#">لیستی </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-list-left-sidebar.html">نوار کناری سمت چپ</a></li>
+                                                <li><a href="blog-list-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-list.html">لیستی بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item-has-children"><a href="#">محصولات</a>
+                                    <ul class="sub-menu">
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">لوازم دیجیتالی</a>
+                                            <ul>
+                                                <li><a href="#"> دوربین مدار بسته </a></li>
+                                                <li><a href="#">هدست</a></li>
+                                                <li><a href="#">تلویزیون hd</a></li>
+                                                <li><a href="#">موبایل</a></li>
+                                                <li><a href="#"> دوربین عکاسی</a></li>
+                                                <li><a href="#">وسایل جانبی موبایل</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">لباس و پوشاک</a>
+                                            <ul>
+                                                <li><a href="#"> مانتو</a></li>
+                                                <li><a href="#">شلوار</a></li>
+                                                <li><a href="#">پیراهن</a></li>
+                                                <li><a href="#">شال و روسری</a></li>
+                                                <li><a href="#">پالتو</a></li>
+                                                <li><a href="#">کت و شلوار</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">کیف</a>
+                                            <ul>
+                                                <li><a href="#">کیف زنانه</a></li>
+                                                <li><a href="#">کوله پشتی</a></li>
+                                                <li><a href="#">کیف اداری</a></li>
+                                                <li><a href="#">کیف جیبی</a></li>
+                                                <li><a href="#"> کیف رو دوشی</a></li>
+                                                <li><a href="#">کیف دستی</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">کفش</a>
+                                            <ul>
+                                                <li><a href="#">کفش اسپرست</a></li>
+                                                <li><a href="#">کفش ورزشی</a></li>
+                                                <li><a href="#">کفش مجلسی</a></li>
+                                                <li><a href="#">کفش تخت</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="menu-item-has-children"><a href="#">فروشگاه</a>
+                                    <ul class="sub-menu">
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">صفحات دیگر</a>
+                                            <ul>
+                                                <li><a href="shop-product-detail-left-sidebar.html">جزییات محصول
+                                                    سمت چپ</a></li>
+                                            <li><a href="shop-product-detail-right-sidebar.html">جزییات
+                                                    محصول سمت راست</a></li>
+                                                <li><a href="cart.html"> سبد خرید</a></li>
+                                                <li><a href="checkout.html">بررسی</a></li>
+                                                <li><a href="wishlist.html">لیست مورد علاقه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">طرح بندی صفحه خرید</a>
+                                            <ul>
+                                                <li><a href="shop-ns.html">شبکه ای چهار ستون</a></li>
+                                                <li><a href="shop-left-sidebar.html">شبکه ای نوار کناری سمت
+                                                        چپ</a></li>
+                                                <li><a href="shop-right-sidebar.html"> شبکه ای نوار کناری سمت
+                                                        راست</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="footer_menu_mobile ">
+                            <a href="#" class="btn btn-block btn_menu_mobile "><i class="fal fa-user ms-2"></i>
+                                ورود به سایت
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-4  col-md-3  col-lg-9 col_menu_top">
+                        <div class="arealogo float-end ps-3">
+                            <a href="index.html" class="d-block d-lg-none"> <img src="images/logosmal.png" /></a>
+                            <a href="index.html" class="d-none d-lg-block"> <img src="images/logo.png" /></a>
+                        </div>
+                        <div class="d-none d-lg-block  top_menu h-100 ">
+                            <ul class="d-flex h-100 align-items-center">
+                                <li><a href="#">صفحه اصلی <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">صفحه اصلی 1</a></li>
+                                        <li><a href="index2.html">صفحه اصلی 2</a></li>
+                                       <li><a href="index3.html">صفحه اصلی 3</a> </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">صفحات<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li><a href="#">تماس با ما<i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact.html"> طرح 1</a></li>
+                                                <li><a href="contacts-v2.html">طرح 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="account.html">حساب کاربری</a>
+                                        </li>
+                                        <li><a href="404.html">خطا 404</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">وبلاگ<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">ساختمانی <i class="fal fa-angle-left"></i>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-masonry-four-columns.html">چهار ستون </a>
+                                                </li>
+                                                <li><a href="blog-masonry-left-sidebar.html">نوار کناری سمت چپ </a>
+                                                </li>
+                                                <li><a href="blog-masonry-right-sidebar.html">نوار کناری سمت راست
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">جزییات وبلاگ <i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-single-left-sidebar.html">پیش فرض</a></li>
+                                                <li><a href="blog-single-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-single.html">جزییات وبلاگ بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">لیستی <i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-list-left-sidebar.html">نوار کناری سمت چپ</a></li>
+                                                <li><a href="blog-list-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-list.html">لیستی بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="container-mega-menu"><a href="#">محصولات
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="area-megamenu">
+                                        <div class="row">
+                                            <div class="col-12 d-flex mb-4">
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">لوازم دیجیتالی</a>
+                                                    <ul>
+                                                        <li><a href="#"> دوربین مدار بسته </a></li>
+                                                        <li><a href="#">هدست</a></li>
+                                                        <li><a href="#">تلویزیون hd</a></li>
+                                                        <li><a href="#">موبایل</a></li>
+                                                        <li><a href="#"> دوربین عکاسی</a></li>
+                                                        <li><a href="#">وسایل جانبی موبایل</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">لباس و پوشاک</a>
+                                                    <ul>
+                                                        <li><a href="#"> مانتو</a></li>
+                                                        <li><a href="#">شلوار</a></li>
+                                                        <li><a href="#">پیراهن</a></li>
+                                                        <li><a href="#">شال و روسری</a></li>
+                                                        <li><a href="#">پالتو</a></li>
+                                                        <li><a href="#">کت و شلوار</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">کیف</a>
+                                                    <ul>
+                                                        <li><a href="#">کیف زنانه</a></li>
+                                                        <li><a href="#">کوله پشتی</a></li>
+                                                        <li><a href="#">کیف اداری</a></li>
+                                                        <li><a href="#">کیف جیبی</a></li>
+                                                        <li><a href="#"> کیف رو دوشی</a></li>
+                                                        <li><a href="#">کیف دستی</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3 ">
+                                                    <a class="title_megamenu" href="#">کفش</a>
+                                                    <ul>
+                                                        <li><a href="#">کفش اسپرست</a></li>
+                                                        <li><a href="#">کفش ورزشی</a></li>
+                                                        <li><a href="#">کفش مجلسی</a></li>
+                                                        <li><a href="#">کفش تخت</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img203.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img202.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img204.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="container-mega-menu"><a href="#">فروشگاه<i
+                                            class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <div class="area-megamenu pb-5">
+                                        <div class="row">
+                                            <div class="mega-menu-col col-4">
+                                                <a class="title_megamenu" href="#">صفحات دیگر</a>
+                                                <ul>
+                                                    <li><a href="shop-product-detail-left-sidebar.html">جزییات محصول
+                                                            سمت چپ</a></li>
+                                                    <li><a href="shop-product-detail-right-sidebar.html">جزییات
+                                                            محصول سمت راست</a></li>
+                                                            <li><a href="wishlist.html">لیست مورد علاقه</a></li>
+                                                    <li><a href="cart.html"> سبد خرید</a></li>
+                                                    <li><a href="checkout.html">بررسی</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <a class="title_megamenu" href="#">طرح بندی صفحه خرید</a>
+                                                <ul>
+                                                    <li><a href="shop-ns.html">شبکه ای چهار ستون</a></li>
+                                                    <li><a href="shop-left-sidebar.html">شبکه ای نوار کناری سمت
+                                                            چپ</a></li>
+                                                    <li><a href="shop-right-sidebar.html"> شبکه ای نوار کناری سمت
+                                                            راست</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <img class="img-fluid" src="images/img201.jpg"
+                                                        alt="تصویر مگامنو">
+
+                                                    <div class="baner-megamenu-info">
+                                                        <h3 class="baner-megamenu-title">مجموعه جدید</h3>
+                                                        <h4 class="baner-megamenu-title">٪50 تخفیف</h4>
+                                                        <a href="shop-left-sidebar.html" class="btn-5">اکنون خرید
+                                                            کنید</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <div class="col-4 col-md-3 col-lg-3">
+                        <div class="widget_navbar d-flex justify-content-end align-items-center ">
+                            <div class="main-nav ms-3 ms-lg-0 ms-xl-3  icon_login_user item_widget_navbar">
+                                <ul>
+                                    <!-- inser more links here -->
+                                    <li><a class="cd-signin" href="#0">ورود<i class="fal fa-user me-2"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="cd-user-modal">
+                                <!-- this is the entire modal form, including the background -->
+                                <div class="cd-user-modal-container">
+                                    <!-- this is the container wrapper -->
+                                    <ul class="cd-switcher">
+                                        <li><a href="#0" class="selected">ورود</a></li>
+                                        <li><a href="#0">ثبت نام</a></li>
+                                    </ul>
+                                    <div id="cd-login" class="is-selected">
+                                        <!-- log in form -->
+                                        <h1 class="text-center d-none d-sm-block">با استفاده از ایمیل و رمز عبور به حساب
+                                            خود
+                                            وارد شوید</h1>
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <div class="group">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">آدرس ایمیل</label>
+                                                </div>
+                                                <div class="group">
+                                                    <input required="" class="input inputpassword" type="password"
+                                                        name="key"><span class="highlight"></span><span
+                                                        class="bar"></span>
+                                                    <label class="label" for="date">رمز عبور</label>
+                                                </div>
+                                                <div
+                                                    class="forget_show-hide_password  d-block d-sm-flex justify-content-between mt-3  align-items-center">
+                                                    <div class="form-check showPasswork-checkbox my-3 my-sm-0">
+                                                        <input type="checkbox" class="form-check-input ms-1"
+                                                            id="checkbox-login" onclick="showPassword()">
+                                                        <label class="form-check-label" for="checkbox-login">نمایش
+                                                            رمز عبور</label>
+                                                    </div>
+                                                    <div class="forget_password">
+                                                        <p class="cd-form-bottom-message"><a href="#0">رمز خود را فراموش
+                                                                کردید؟</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="signin"></label>
+                                                    <div class="controls  mt-4  mt-sm-5 mb-2">
+                                                        <button id="signin" name="signin" class="btn-5">ورود</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-login -->
+                                    <div id="cd-signup">
+                                        <!-- sign up form -->
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <!-- Sign Up Form -->
+                                                <!-- Text input-->
+                                                <div class="group mt-0">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">نام</label></div>
+                                                <!-- Password input-->
+                                                <div class="group">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">ایمیل</label></div>
+                                                <!-- Text input-->
+                                                <div class="group">
+                                                    <input required="" class="input inputpassword" type="password"
+                                                        name="key"><span class="highlight"></span><span
+                                                        class="bar"></span>
+                                                    <label class="label" for="date">رمز عبور</label>
+                                                </div>
+                                                <div class="form-check showPasswork-checkbox mt-3">
+                                                    <input type="checkbox" class="form-check-input ms-1"
+                                                        id="checkbox-sign-up" onclick="showPassword()">
+                                                    <label class="form-check-label" for="checkbox-sign-up">نمایش
+                                                        رمز عبور</label>
+                                                </div>
+                                                <!-- Button -->
+                                                <div class="control-group">
+                                                    <label class="control-label" for="confirmsignup"></label>
+                                                    <div class="controls  mt-4  mt-sm-5 mb-2 ">
+                                                        <button id="confirmsignup" name="confirmsignup"
+                                                            class="btn-5">ثبت
+                                                            نام</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-signup -->
+                                    <div id="cd-reset-password">
+                                        <!-- reset password form -->
+                                        <h4 class="modal-title text-center" id="myModalLabel">رمز عبور به ایمیل شما
+                                            ارسال می شود</h4>
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <div class="group">
+                                                    <input required="" class="input" type="text">
+                                                    <span class="highlight"></span><span class="bar">
+
+                                                    </span>
+                                                    <label class="label" for="date">آدرس ایمیل</label>
+                                                </div>
+                                                <div class="control-group mt-5 mb-3">
+                                                    <label class="control-label" for="forpassword"></label>
+                                                    <div class="controls ">
+                                                        <button id="forpasswodr" name="forpassword"
+                                                            class="btn-5">ارسال</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-reset-password -->
+                                    <div class="modal-footer">
+                                        <div class="area-socialIcon d-flex justify-content-center w-100">
+                                            <a href="http://www.facebook.com" class="icon facebook"><span
+                                                    class="tooltip-site">Facebook</span></a>
+                                            <a href="http://www.github.com" class="icon instegram"><span
+                                                    class="tooltip-site">instegram</span></a>
+                                            <a href="http://www.dribble.com" class="icon linkedin"><span
+                                                    class="tooltip-site">linkedin</span></a>
+                                            <a href="http://www.twitter.com" class="icon twitter"><span
+                                                    class="tooltip-site">Twitter</span></a>
+
+                                        </div>
+                                    </div>
+                                </div> <!-- cd-user-modal-container -->
+                            </div> <!-- cd-user-modal -->
+                            <div class="main-nav d-none d-lg-block area-btn-signup-about me-5">
+                                <ul>
+                                    <!-- inser more links here -->
+                                    <li><a class="cd-signup btn-5" href="#0">ثبت نام</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="area_navbar area_navbar_sticky">
+            <div class="container container_nav">
+                <div class="row area_search">
+                    <div
+                        class="col-10 col-sm-7 col-md-8 col-lg-9  d-flex justify-content-between align-items-center border-left">
+                        <form class="search-form d-flex w-100" method="get">
+                            <input type="text" class="form-control input_search " name="" value=""
+                                placeholder="دنبال چه میگردید">
+                            <button type="submit">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
+                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-2 col-sm-5 col-md-4 col-lg-3  d-flex  align-items-center justify-content-end ">
+                        <button class="btn custom-select custom-select-all-category  border-left d-none d-sm-block"
+                            type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">همه دست بندی
+                            ها</button>
+                        <div class="dropdown-menu dropdown-menu-all-category">
+                            <a class="dropdown-item" href="#">دیجیتال</a>
+                            <a class="dropdown-item" href="#">کیف</a>
+                            <a class="dropdown-item" href="#">کفش</a>
+                            <a class="dropdown-item" href="#">آرایشی و بهداشتی</a>
+                        </div>
+                        <button type="button" class="close close_search_header" aria-label="Close"
+                            data-dismiss="search_navbar">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="row d-flex justify-content-between align-items-center navbarr justify-content-md-between ju">
+                    <div class="col-4  col-md-3 d-block d-lg-none">
+                        <div class="icon_meni_bar">
+                            <a class="d-block d-xl-none"><i class="fas fa-bars me-2"></i></a>
+                        </div>
+                    </div>
+                    <div id="menu_mobile" class="menu_mobile ">
+                        <div class="header_menu_mobile d-flex align-items-center">
+                            <button type="button" class="btn-close close_menu_mobile" aria-label="Close"></button>
+                            <img src="images/logosmal.png" />
+                        </div>
+                        <div class="area_menu_mobile menu-top-menu-container" id="accordian">
+                            <ul class="menu-multi-level">
+                                <li class="menu-item-has-children"><a href="#">صفحه اصلی </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">صفحه اصلی 1</a></li>
+                                        <li><a href="index2.html">صفحه اصلی 2</a></li>
+                                       <li><a href="index3.html">صفحه اصلی 3</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">صفحات</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li  class="menu-item-has-children"><a href="#">تماس با ما</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact.html"> طرح 1</a></li>
+                                                <li><a href="contacts-v2.html">طرح 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="account.html">حساب کاربری</a>
+                                        </li>
+                                        <li><a href="404.html">خطا 404</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">وبلاگ</a>
+                                    <ul class="sub-menu">
+                                        <li  class="menu-item-has-children"><a href="#">ساختمانی 
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-masonry-four-columns.html">چهار ستون </a>
+                                                </li>
+                                                <li><a href="blog-masonry-left-sidebar.html">نوار کناری سمت چپ </a></li>
+                                                <li><a href="blog-masonry-right-sidebar.html">نوار کناری سمت راست </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li  class="menu-item-has-children"><a href="#">جزییات وبلاگ </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-single-left-sidebar.html">پیش فرض</a></li>
+                                                <li><a href="blog-single-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-single.html">جزییات وبلاگ بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li  class="menu-item-has-children"><a href="#">لیستی </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-list-left-sidebar.html">نوار کناری سمت چپ</a></li>
+                                                <li><a href="blog-list-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-list.html">لیستی بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item-has-children"><a href="#">محصولات</a>
+                                    <ul class="sub-menu">
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">لوازم دیجیتالی</a>
+                                            <ul>
+                                                <li><a href="#"> دوربین مدار بسته </a></li>
+                                                <li><a href="#">هدست</a></li>
+                                                <li><a href="#">تلویزیون hd</a></li>
+                                                <li><a href="#">موبایل</a></li>
+                                                <li><a href="#"> دوربین عکاسی</a></li>
+                                                <li><a href="#">وسایل جانبی موبایل</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">لباس و پوشاک</a>
+                                            <ul>
+                                                <li><a href="#"> مانتو</a></li>
+                                                <li><a href="#">شلوار</a></li>
+                                                <li><a href="#">پیراهن</a></li>
+                                                <li><a href="#">شال و روسری</a></li>
+                                                <li><a href="#">پالتو</a></li>
+                                                <li><a href="#">کت و شلوار</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">کیف</a>
+                                            <ul>
+                                                <li><a href="#">کیف زنانه</a></li>
+                                                <li><a href="#">کوله پشتی</a></li>
+                                                <li><a href="#">کیف اداری</a></li>
+                                                <li><a href="#">کیف جیبی</a></li>
+                                                <li><a href="#"> کیف رو دوشی</a></li>
+                                                <li><a href="#">کیف دستی</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">کفش</a>
+                                            <ul>
+                                                <li><a href="#">کفش اسپرست</a></li>
+                                                <li><a href="#">کفش ورزشی</a></li>
+                                                <li><a href="#">کفش مجلسی</a></li>
+                                                <li><a href="#">کفش تخت</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="menu-item-has-children"><a href="#">فروشگاه</a>
+                                    <ul class="sub-menu">
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">صفحات دیگر</a>
+                                            <ul>
+                                                <li><a href="shop-product-detail-left-sidebar.html">جزییات محصول
+                                                    سمت چپ</a></li>
+                                            <li><a href="shop-product-detail-right-sidebar.html">جزییات
+                                                    محصول سمت راست</a></li>
+                                                <li><a href="cart.html"> سبد خرید</a></li>
+                                                <li><a href="checkout.html">بررسی</a></li>
+                                                <li><a href="wishlist.html">لیست مورد علاقه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-col">
+                                            <a class="title-megamenu-mobile" href="#">طرح بندی صفحه خرید</a>
+                                            <ul>
+                                                <li><a href="shop-ns.html">شبکه ای چهار ستون</a></li>
+                                                <li><a href="shop-left-sidebar.html">شبکه ای نوار کناری سمت
+                                                        چپ</a></li>
+                                                <li><a href="shop-right-sidebar.html"> شبکه ای نوار کناری سمت
+                                                        راست</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="footer_menu_mobile ">
+                            <a href="#" class="btn btn-block btn_menu_mobile "><i class="fal fa-user ms-2"></i>
+                                ورود به سایت
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-4  col-md-3  col-lg-9 col_menu_top">
+                        <div class="arealogo float-end ps-3">
+                            <a href="index.html" class="d-block d-lg-none"> <img src="images/logosmal.png" /></a>
+                            <a href="index.html" class="d-none d-lg-block"> <img src="images/logo.png" /></a>
+                        </div>
+                        <div class="d-none d-lg-block  top_menu h-100 ">
+                            <ul class="d-flex h-100 align-items-center">
+                                <li><a href="#">صفحه اصلی <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">صفحه اصلی 1</a></li>
+                                        <li><a href="index2.html">صفحه اصلی 2</a></li>
+                                       <li><a href="index3.html">صفحه اصلی 3</a> </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">صفحات<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li><a href="#">تماس با ما<i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact.html"> طرح 1</a></li>
+                                                <li><a href="contacts-v2.html">طرح 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="account.html">حساب کاربری</a>
+                                        </li>
+                                        <li><a href="404.html">خطا 404</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">وبلاگ<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">ساختمانی <i class="fal fa-angle-left"></i>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-masonry-four-columns.html">چهار ستون </a>
+                                                </li>
+                                                <li><a href="blog-masonry-left-sidebar.html">نوار کناری سمت چپ </a>
+                                                </li>
+                                                <li><a href="blog-masonry-right-sidebar.html">نوار کناری سمت راست
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">جزییات وبلاگ <i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-single-left-sidebar.html">پیش فرض</a></li>
+                                                <li><a href="blog-single-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-single.html">جزییات وبلاگ بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">لیستی <i class="fal fa-angle-left"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-list-left-sidebar.html">نوار کناری سمت چپ</a></li>
+                                                <li><a href="blog-list-right-sidebar.html">نوار کناری سمت راست</a>
+                                                </li>
+
+                                                <li><a href="blog-list.html">لیستی بدون سایدبار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="container-mega-menu"><a href="#">محصولات
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="area-megamenu">
+                                        <div class="row">
+                                            <div class="col-12 d-flex mb-4">
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">لوازم دیجیتالی</a>
+                                                    <ul>
+                                                        <li><a href="#"> دوربین مدار بسته </a></li>
+                                                        <li><a href="#">هدست</a></li>
+                                                        <li><a href="#">تلویزیون hd</a></li>
+                                                        <li><a href="#">موبایل</a></li>
+                                                        <li><a href="#"> دوربین عکاسی</a></li>
+                                                        <li><a href="#">وسایل جانبی موبایل</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">لباس و پوشاک</a>
+                                                    <ul>
+                                                        <li><a href="#"> مانتو</a></li>
+                                                        <li><a href="#">شلوار</a></li>
+                                                        <li><a href="#">پیراهن</a></li>
+                                                        <li><a href="#">شال و روسری</a></li>
+                                                        <li><a href="#">پالتو</a></li>
+                                                        <li><a href="#">کت و شلوار</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3">
+                                                    <a class="title_megamenu" href="#">کیف</a>
+                                                    <ul>
+                                                        <li><a href="#">کیف زنانه</a></li>
+                                                        <li><a href="#">کوله پشتی</a></li>
+                                                        <li><a href="#">کیف اداری</a></li>
+                                                        <li><a href="#">کیف جیبی</a></li>
+                                                        <li><a href="#"> کیف رو دوشی</a></li>
+                                                        <li><a href="#">کیف دستی</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-col col-3 ">
+                                                    <a class="title_megamenu" href="#">کفش</a>
+                                                    <ul>
+                                                        <li><a href="#">کفش اسپرست</a></li>
+                                                        <li><a href="#">کفش ورزشی</a></li>
+                                                        <li><a href="#">کفش مجلسی</a></li>
+                                                        <li><a href="#">کفش تخت</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img203.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img202.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <a href="shop-left-sidebar.html"> <img class="img-fluid"
+                                                            src="images/img204.jpg" alt="تصویر مگامنو">
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="container-mega-menu"><a href="#">فروشگاه<i
+                                            class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <div class="area-megamenu pb-5">
+                                        <div class="row">
+                                            <div class="mega-menu-col col-4">
+                                                <a class="title_megamenu" href="#">صفحات دیگر</a>
+                                                <ul>
+                                                    <li><a href="shop-product-detail-left-sidebar.html">جزییات محصول
+                                                            سمت چپ</a></li>
+                                                    <li><a href="shop-product-detail-right-sidebar.html">جزییات
+                                                            محصول سمت راست</a></li>
+                                                            <li><a href="wishlist.html">لیست مورد علاقه</a></li>
+                                                    <li><a href="cart.html"> سبد خرید</a></li>
+                                                    <li><a href="checkout.html">بررسی</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <a class="title_megamenu" href="#">طرح بندی صفحه خرید</a>
+                                                <ul>
+                                                    <li><a href="shop-ns.html">شبکه ای چهار ستون</a></li>
+                                                    <li><a href="shop-left-sidebar.html">شبکه ای نوار کناری سمت
+                                                            چپ</a></li>
+                                                    <li><a href="shop-right-sidebar.html"> شبکه ای نوار کناری سمت
+                                                            راست</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col col-4">
+                                                <div class="baner-megamenu">
+                                                    <img class="img-fluid" src="images/img201.jpg"
+                                                        alt="تصویر مگامنو">
+
+                                                    <div class="baner-megamenu-info">
+                                                        <h3 class="baner-megamenu-title">مجموعه جدید</h3>
+                                                        <h4 class="baner-megamenu-title">٪50 تخفیف</h4>
+                                                        <a href="shop-left-sidebar.html" class="btn-5">اکنون خرید
+                                                            کنید</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <div class="col-4 col-md-3 col-lg-3">
+                        <div class="widget_navbar d-flex justify-content-end align-items-center ">
+                            <div class="main-nav ms-3 ms-lg-0 ms-xl-3  icon_login_user item_widget_navbar">
+                                <ul>
+                                    <!-- inser more links here -->
+                                    <li><a class="cd-signin" href="#0">ورود<i class="fal fa-user me-2"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="cd-user-modal">
+                                <!-- this is the entire modal form, including the background -->
+                                <div class="cd-user-modal-container">
+                                    <!-- this is the container wrapper -->
+                                    <ul class="cd-switcher">
+                                        <li><a href="#0" class="selected">ورود</a></li>
+                                        <li><a href="#0">ثبت نام</a></li>
+                                    </ul>
+                                    <div id="cd-login" class="is-selected">
+                                        <!-- log in form -->
+                                        <h1 class="text-center d-none d-sm-block">با استفاده از ایمیل و رمز عبور به حساب
+                                            خود
+                                            وارد شوید</h1>
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <div class="group">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">آدرس ایمیل</label>
+                                                </div>
+                                                <div class="group">
+                                                    <input required="" class="input inputpassword" type="password"
+                                                        name="key"><span class="highlight"></span><span
+                                                        class="bar"></span>
+                                                    <label class="label" for="date">رمز عبور</label>
+                                                </div>
+                                                <div
+                                                    class="forget_show-hide_password d-flex justify-content-between mt-3  align-items-center">
+                                                    <div class="form-check showPasswork-checkbox my-3 my-sm-0">
+                                                        <input type="checkbox" class="form-check-input ms-1"
+                                                            id="checkbox-login" onclick="showPassword()">
+                                                        <label class="form-check-label" for="checkbox-login">نمایش
+                                                            رمز عبور</label>
+                                                    </div>
+                                                    <div class="forget_password">
+                                                        <p class="cd-form-bottom-message"><a href="#0">رمز خود را فراموش
+                                                                کردید؟</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="signin"></label>
+                                                    <div class="controls  mt-4  mt-sm-5 mb-2">
+                                                        <button id="signin" name="signin" class="btn-5">ورود</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-login -->
+                                    <div id="cd-signup">
+                                        <!-- sign up form -->
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <!-- Sign Up Form -->
+                                                <!-- Text input-->
+                                                <div class="group mt-0">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">نام</label></div>
+                                                <!-- Password input-->
+                                                <div class="group">
+                                                    <input required="" class="input" type="text"><span
+                                                        class="highlight"></span><span class="bar"></span>
+                                                    <label class="label" for="date">ایمیل</label></div>
+                                                <!-- Text input-->
+                                                <div class="group">
+                                                    <input required="" class="input inputpassword" type="password"
+                                                        name="key"><span class="highlight"></span><span
+                                                        class="bar"></span>
+                                                    <label class="label" for="date">رمز عبور</label>
+                                                </div>
+                                                <div class="form-check showPasswork-checkbox mt-3">
+                                                    <input type="checkbox" class="form-check-input ms-1"
+                                                        id="checkbox-sign-up" onclick="showPassword()">
+                                                    <label class="form-check-label" for="checkbox-sign-up">نمایش
+                                                        رمز عبور</label>
+                                                </div>
+                                                <!-- Button -->
+                                                <div class="control-group">
+                                                    <label class="control-label" for="confirmsignup"></label>
+                                                    <div class="controls mt-4  mt-sm-5 mb-2">
+                                                        <button id="confirmsignup" name="confirmsignup"
+                                                            class="btn-5">ثبت
+                                                            نام</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-signup -->
+                                    <div id="cd-reset-password">
+                                        <!-- reset password form -->
+                                        <h4 class="modal-title text-center" id="myModalLabel">رمز عبور به ایمیل شما
+                                            ارسال می شود</h4>
+                                        <form class="form-modal">
+                                            <fieldset>
+                                                <div class="group">
+                                                    <input required="" class="input" type="text">
+                                                    <span class="highlight"></span><span class="bar">
+                                                    </span>
+                                                    <label class="label" for="date">آدرس ایمیل</label>
+                                                </div>
+                                                <div class="control-group mt-5 mb-3">
+                                                    <label class="control-label" for="forpassword"></label>
+                                                    <div class="controls ">
+                                                        <button id="forpasswodr" name="forpassword"
+                                                            class="btn-5">ارسال</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- cd-reset-password -->
+                                    <div class="modal-footer">
+                                        <div class="area-socialIcon d-flex justify-content-center w-100">
+                                            <a href="http://www.facebook.com" class="icon facebook"><span
+                                                    class="tooltip-site">Facebook</span></a>
+                                            <a href="http://www.github.com" class="icon instegram"><span
+                                                    class="tooltip-site">instegram</span></a>
+                                            <a href="http://www.dribble.com" class="icon linkedin"><span
+                                                    class="tooltip-site">linkedin</span></a>
+                                            <a href="http://www.twitter.com" class="icon twitter"><span
+                                                    class="tooltip-site">Twitter</span></a>
+
+                                        </div>
+                                    </div>
+                                </div> <!-- cd-user-modal-container -->
+                            </div> <!-- cd-user-modal -->
+                            <div class="main-nav d-none d-lg-block area-btn-signup-about me-5">
+                                <ul>
+                                    <!-- inser more links here -->
+                                    <li><a class="cd-signup btn-5" href="#0">ثبت نام</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <section class="area-our-mission">
+            <div class="container pt-5 pt-lg-3  pt-xl-5 mt-2">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-12 col-lg-5 ">
+                        <div class="box-our-mission">
+                            <h1 class="mb-2">اهداف و ماموریت ما</h1>
+                            <h2 class="mb-4">چگونه به شرکت های دیگر کمک می کنیم تا رشد کنند</h2>
+                            <div class="mb-5">
+                                <p class="text-our-mission">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                    گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
+                                    برای شرایط .
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center"> <a href="video/bootstrap_v4_part35.mp4"
+                                    data-fancybox="video-gallery" data-title="" class="iconPlay-video-gallery ms-3"> <i
+                                        class="far fa-play"></i></a>
+                                <span>ما را بهتر بشناسید</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block  col-7 area-card-our-mission ">
+                        <div class="bg-card-our-mission sty2"> <img src="images/bg-about.svg" class="h-100 w-100" />
+                        </div>
+                        <div class="row h-100 card-our-mission mgleft sty2">
+                            <div class="col-4 px-2">
+                                <a href="#"
+                                    class="card card-body d-flex justify-content-center align-items-center h-100">
+                                    <i class="far fa-paint-brush-alt text-primary"></i>
+                                    <h3>طراحی گرافیک</h3>
+                                </a>
+                            </div>
+                            <div class="col-4 px-2 d-flex flex-column ">
+                                <a href="#"
+                                    class="card card-body  flex-column align-items-center justify-content-center mb-3">
+                                    <i class="fal fa-user-headset text-warning"></i>
+                                    <h3>پشتیبانی فوق العاده</h3>
+                                </a>
+                                <a href="#"
+                                    class="card card-body d-flex  flex-column align-items-center justify-content-center">
+                                    <i class="fab fa-sketch text-secondary"></i>
+                                    <h3>ایده خلاقانه</h3>
+                                </a>
+                            </div>
+                            <div class="col-4 px-2 d-flex flex-column">
+                                <a href="#"
+                                    class="card card-body d-flex  flex-column align-items-center justify-content-center mb-3">
+                                    <i class="fal fa-pen-nib text-danger"></i>
+                                    <h3>طراحی لوگو</h3>
+                                </a>
+                                <a href="#"
+                                    class="card card-body d-flex  flex-column align-items-center justify-content-center">
+                                    <i class="far fa-external-link text-info"></i>
+                                    <h3>مارکتینگ</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="area-counterUp ">
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col-sm-6 col-md-3 counter  d-flex justify-content-center align-items-center flex-column mb-4 mb-sm-4">
+                        <h2 class="timer count-title count-number mb-1" data-to="300" data-speed="1500"></h2>
+                        <p class="count-text mb-3">پروژه با موفقیت به پایان رسید</p>
+                        <i class="fal fa-shield-check"></i>
+                    </div>
+                    <div
+                        class="col-sm-6  col-md-3  counter d-flex justify-content-center align-items-center flex-column mb-4 mb-sm-4">
+                        <h2 class="timer count-title count-number mb-1" data-to="1700" data-speed="1500"></h2>
+                        <p class="count-text mb-3">بازخود مثبت</p>
+                        <i class="fal fa-comment-alt-smile"></i>
+                    </div>
+                    <div
+                        class="col-sm-6  col-md-3  counter d-flex justify-content-center align-items-center flex-column mb-4">
+                        <h2 class="timer count-title count-number mb-1" data-to="11900" data-speed="1500"></h2>
+                        <p class="count-text mb-3">مشتری راضی داریم</p>
+                        <i class="fal fa-smile"></i>
+                    </div>
+                    <div
+                        class="col-sm-6  col-md-3  counter d-flex justify-content-center align-items-center flex-column mb-4">
+                        <h2 class="timer count-title count-number mb-1" data-to="10" data-speed="1500"></h2>
+                        <p class="count-text mb-3">سال تجربه</p>
+                        <i class="fal fa-flask"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="area-card-pepleCompany ">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title_site">
+                            <h2>افراد تیم ما</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div
+                        class="col-12 col-sm-6 col-md-4   col-lg-3 mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company1.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">زهرا محمدی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company2.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">لیلا احمدی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company3.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">علی حمزه عوفی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company4.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">ماندانا رضایی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company5.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">علی حمزه عوفی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company6.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">نازنین اکرمی</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company7.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">فاطمه احمدزاده</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-sm-6 col-md-4  col-lg-3  mb_col_card-pepleCompany d-flex justify-content-center">
+                        <div class="card card-pepleCompany">
+                            <a class="card-floating-icon" href="#"> <i class="far fa-envelope"></i></a>
+                            <div class="card-img-top ">
+                                <img src="images/peple-company8.jpg">
+                            </div>
+                            <div class="card-body text-center pt-1">
+                                <h3 class="mb-2">مریم رضازاده</h3>
+                                <p> مدیر بازاریابی</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div
+                            class="area-recruitment py-5 px-4  d-flex justify-content-center align-items-center flex-column flex-md-row">
+                            <div class="box-text-recruitment mb-4 mb-md-0 ">
+                                <h3 class="mb-2">آیا می خواهید بخشی از تیم ما باشید؟ ما استخدام می کنیم</h3>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                </p>
+                            </div>
+                            <div class="area-btn-recruitment d-flex justify-content-center">
+                                <a href="#" class="btn-5" type="button">ارسال درخواست</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class=" mb-5 pb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title_site mb-4 mb-sm-5">
+                            <h2>ما با شرکت های برتر جهان کار می کنیم</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/adidas1.png" class="img1_barand img-fluid " />
+                                <img src="images/adidas2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/brooks1.png" class="img1_barand img-fluid " />
+                                <img src="images/brooks2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/fila1.png" class="img1_barand img-fluid " />
+                                <img src="images/fila2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/amazon1.png" class="img1_barand img-fluid " />
+                                <img src="images/amazon2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/fila1.png" class="img1_barand img-fluid " />
+                                <img src="images/fila2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/canon1.png" class="img1_barand img-fluid " />
+                                <img src="images/canon2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/sennheiser1.png" class="img1_barand img-fluid " />
+                                <img src="images/sennheiser2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/puma1.png" class="img1_barand img-fluid " />
+                                <img src="images/poma2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/rayban1.png" class="img1_barand img-fluid " />
+                                <img src="images/rayban2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/fila1.png" class="img1_barand img-fluid " />
+                                <img src="images/fila2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/brooks1.png" class="img1_barand img-fluid " />
+                                <img src="images/brooks2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3 mb_col_barand">
+                        <a href="#" class="d-block">
+                            <div class="area_img_barand">
+                                <img src="images/amazon1.png" class="img1_barand img-fluid " />
+                                <img src="images/amazon2.png" class="img2_barand img-fluid " />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="area_footer_top">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-12 col-lg-4">
+                        <div class="contenet_widget_footer">
+                            <a href="#" class="mb-3 d-block"> <img src="images/logo.png" class="img-logoFooter2" /></a>
+                            <p class="mb-4 pb-2"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                                استفاده از
+                                طراحان گرافیک است</p>
+                            <div class="area-socialIcon area-socialIconfooter d-flex align-items-center mb-5 mb-lg-0">
+                                <a href="http://www.facebook.com" class="icon facebook"><span
+                                        class="tooltip-site">Facebook</span></a>
+                                <a href="http://www.github.com" class="icon instegram"><span
+                                        class="tooltip-site">instegram</span></a>
+                                <a href="http://www.dribble.com" class="icon linkedin"><span
+                                        class="tooltip-site">linkedin</span></a>
+                                <a href="http://www.twitter.com" class="icon twitter"><span
+                                        class="tooltip-site">Twitter</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="widget_footer">
+                                    <div class="title_widget_footer">
+                                        خدمات
+                                    </div>
+                                    <div class="contenet_widget_footer">
+                                        <ul>
+                                            <li><a href="#">شرایط ارسال و عودت</a></li>
+                                            <li><a href="#">پرسش های متداول</a></li>
+                                            <li><a href="#">رعایت حریم خصوصی</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="widget_footer">
+                                    <div class="title_widget_footer">
+                                        حساب کاربری
+                                    </div>
+                                    <div class="contenet_widget_footer">
+                                        <ul>
+                                            <li><a href="#">سفارش های من</a></li>
+                                            <li><a href="#">پیگیری سفارش</a></li>
+                                            <li><a href="#">مشخصات کاربری من</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="widget_footer">
+                                    <div class="title_widget_footer">
+                                        اطلاعات
+                                    </div>
+                                    <div class="contenet_widget_footer">
+                                        <ul>
+                                            <li><a href="#">شرایط استفاده</a></li>
+                                            <li><a href="#">راهنمای خرید</a></li>
+                                            <li><a href="#">تماس با ما</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="area_footer_bottom">
+            <div class="container">
+                <div class="row ju justify-content-between align-items-center pt-4 pb-4 pb-md-5 ">
+                    <div class="col-12 col-md-6 d-flex mb-2 mb-md-0  justify-content-start">
+                        <div class="copyright">
+                            تمامی حقوق سایت محفوظ است
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6  d-flex justify-content-start justify-content-md-end">
+                        <div class="menu_footer  mt-2 mt-md-0">
+                            <ul>
+                                <li><a href="#">پشتیبانی</a></li>
+                                <li><a href="#">تماس با ما</a></li>
+                                <li><a href="#">شرایط و ضوابظ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!--refrence carousel-->
+    <script src="js/carousel/owl.carousel.min.js"></script>
+    <!--refrence lightbox video-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

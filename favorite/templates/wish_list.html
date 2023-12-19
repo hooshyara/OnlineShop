@@ -1,0 +1,168 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block page_title %}
+    wishlist
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/respansive.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!--refrence carousel-->
+    <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+    <!--refrence carousel-->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wishlist pb-4 pb-xl-5 pt-5">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb" class="mb-5">
+                        <ol class="breadcrumb ">
+                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">علاقه مندی ها</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="area-content-wishlist">
+                        <table class="table table-wishlist">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col">محصول</th>
+                                <th scope="col">قیمت</th>
+                                <th scope="col">وضعیت</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for item in favorite %}
+                                <tr>
+                                <th scope="row"><a href="{% url 'favorite:remove_from_wishlit' item.product.id %}"
+                                                   class="btn btn-remove-wishlist btn-remove">
+                                    <i class="fas fa-trash-alt"></i>
+                                    <span class="tooltip-site">حذف</span>
+                                </a></th>
+                                <td><a href="{% url 'products:product_detail' item.product.id %}"><img
+                                        src="{{ item.product.cover.url }}"/></a></td>
+                                <td><a href="#" class="name-product-wishlist">
+                                    <h3> {{ item.product.title }}</h3>
+                                </a>
+                                </td>
+                                <td>{{ item.product.price }} تومان</td>
+                                {% if item.product.active %}
+                                    <td>
+                                                <span class="status-product stok">
+                                                    موجود
+                                                </span>
+                                    </td>
+                                {% else %}
+                                    <td>
+                                                <span class="status-product  not-stok">
+                                                    ناموجود
+                                                </span>
+                                    </td>
+                            {% endif %}
+
+                            <td>
+                                <div class="area-btn-addtocart-wishlist">
+                                    <a href='{% url 'cart:add_to_cart' item.product.id %}' class="btn btn-5"> افزودن به سبد خرید<i
+                                            class="fal fa-cart-arrow-down me-2"></i></a>
+                                </div>
+                            </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- WISHLIST MOBILE -->
+                        <ul class="table-wishlist responsive-mobile d-block d-md-none">
+                            <li>
+                                <div
+                                        class="product-wishlist responsive-mobile bg-white d-flex align-items-center  mb-4">
+                                    <div class="product-thumbnail ms-2 ms-md-3"><a href="#"><img
+                                            src="images/hansfari78.jpg"/></a>
+                                    </div>
+                                    <div class="product-details-responsive-mobile">
+                                        <div class="product-name">
+                                            <h3>
+                                                <a href="#" class="name-product-wishlist"> هدفون بی سیم</a>
+                                            </h3>
+                                        </div>
+
+                                        <div class="Price-amount">250000 تومان</div>
+                                    </div>
+
+                                </div>
+
+                                <div class="additional-info-wishlist responsive-mobile d-flex align-items-center">
+
+                                        <span class="status-product stok ms-3">
+                                            موجود
+                                        </span>
+
+                                    <div class="area-btn-addtocart-wishlist ms-3">
+                                        <button type="submit" class="btn btn-5"> افزودن به سبد خرید<i
+                                                class="fal fa-cart-arrow-down me-2"></i></button>
+                                    </div>
+
+                                    <a href="#" class="btn btn-remove-wishlist btn-remove">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <span class="tooltip-site">حذف</span>
+                                    </a>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div
+                                        class="product-wishlist responsive-mobile bg-white d-flex align-items-center  mb-4">
+                                    <div class="product-thumbnail ms-2 ms-md-3"><a href="#"><img
+                                            src="images/kolah757.jpg"/></a>
+                                    </div>
+
+                                    <div class="product-details-responsive-mobile">
+                                        <div class="product-name">
+                                            <h3>
+                                                <a href="#" class="name-product-wishlist"> کلاه آفتابگیر</a>
+                                            </h3>
+                                        </div>
+
+                                        <div class="Price-amount">80000 تومان</div>
+                                    </div>
+                                </div>
+                                <div class="additional-info-wishlist responsive-mobile d-flex align-items-center">
+
+                                        <span class="status-product  not-stok ms-3">
+                                            ناموجود
+                                        </span>
+                                    <div class="area-btn-addtocart-wishlist ms-3">
+                                        <button type="submit" class="btn btn-5"> افزودن به سبد خرید<i
+                                                class="fal fa-cart-arrow-down me-2"></i></button>
+                                    </div>
+
+                                    <a href="#" class="btn btn-remove-wishlist btn-remove">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <span class="tooltip-site">حذف</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

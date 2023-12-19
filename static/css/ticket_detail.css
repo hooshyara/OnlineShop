@@ -1,0 +1,107 @@
+.ticket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.ticket--id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.ticket--id__img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.ticket--id__user {
+    font-size: 30px;
+    font-style: oblique;
+    margin-top: 10px;
+
+}
+
+.ticket--info__text {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+}
+
+.ticket--info {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    border: 1px solid black;
+}
+
+.ticket--info__text--p {
+    font-style: oblique;
+    font-size: 30px;
+    border: 0 solid black;
+}
+
+.ticket--info__text__date {
+    font-size: 20px;
+    font-style: oblique;
+    margin: 0;
+
+}
+
+.ticket__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ticket--status__select{
+    font-size: 30px;
+    padding: 30px;
+    width: 500px;
+    border: 1px solid grey;
+
+}
+
+.ticket__form--reply {
+    width: 1500px;
+    font-size: 30px;
+}
+
+.guid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.ticket--status--p {
+    font-size: 40px;
+    margin: 0 0 0 20px;
+
+}
+
+.ticket--status {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    align-items: center;
+}
+
+.form--button{
+     font-size: 20px;
+    background-color: whitesmoke;
+    color: blue;
+    transition: 1s;
+}
+.form--button:hover{
+    background-color: blue;
+    color: whitesmoke;
+}

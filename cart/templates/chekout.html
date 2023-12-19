@@ -1,0 +1,369 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block page_title %}
+سبد خرید
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/respansive.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!--refrence carousel-->
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+<!--refrence carousel-->
+<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="content checkout">
+    <section class="area-content-checkout">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12 col-lg-8 py-5 ps-lg-5">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                            <li class="breadcrumb-item"><a href="#">فروشگاه</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">پرداخت</li>
+                        </ol>
+                    </nav>
+                    <div class="title_site text-end">
+                        <h1 class="">پرداخت</h1>
+                    </div>
+
+
+                    <div class="area-form-coupon-toggle area-form-toggle  checkout">
+                        <i class="fal fa-tag"></i>
+                        <span>کوپن تخفیف دارید؟ </span>
+                        <a href="#" id="link-coupon">برای وارد کردن کد خود اینجا کلیک کنید
+                        </a>
+
+                    </div>
+                    <div class="area-coupon area-content-collapse my-4">
+                        <form>
+                            <p class="mb-3">اگر کد کوپن دارید ، لطفاً آن را در اینجا وارد کنید.</p>
+                            <div class="form-group coupon w-100">
+                                <input type="text" class="form-control" id="input-coupon" placeholder="کد تخفیف">
+                            </div>
+
+                            <button type="submit" class="btn-5 mt-4"> اعمال
+                                کوپن
+                            </button>
+                        </form>
+                    </div>
+
+
+                    <div class="area-details-checkout">
+
+                        <div class="area-form-wrap">
+                            <!-- Default form contact -->
+                            <form class="row" action="{% url 'cart:chetout' %}" method='post'>
+                                {% csrf_token %}
+                                <h4 class="col-12 mb-4 heading-style1"> جزئیات صورتحساب</h4>
+
+                                <div class="col-12 col-sm-6 form-group mb-4 pl-sm-4">
+                                    <label for="Input-name">نام <span class="text-danger ">*</span>
+                                    </label>
+                                    {{formOrder.first_name}}
+                                </div>
+                                <div class="col-12 col-sm-6 form-group mb-4 ">
+                                    <label for="Input-namefamily">نام خانوادگی <span class="text-danger ">*</span>
+                                    </label>
+                                    {{formOrder.last_name}}
+                                </div>
+
+
+                                <div class="col-12 form-group mb-4">
+                                    <label for="Input-address">آدرس <span class="text-danger ">*</span>
+                                    </label>
+                                    {{formOrder.address}}
+                                </div>
+
+                            
+
+                                <div class="col-12 form-group mb-4">
+                                    <label for="Input-city">شهر <span class="text-danger ">*</span>
+                                    </label>
+                                    {{formOrder.city}}
+                                </div>
+
+                                
+
+                                <div class="col-12 form-group mb-4">
+                                    <label for="Input-codeposty">کد پستی <span class="text-danger ">*</span>
+                                    </label>
+                                    {{formOrder.post_id}}
+                                </div>
+
+                                {% comment %} <div class="col-12 col-sm-6 form-group mb-4 pl-sm-4">
+                                    <label for="Input-phone">تلفن <span class="text-danger ">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="Input-phone">
+                                </div> {% endcomment %}
+
+                                {% comment %} <div class="col-12 col-sm-6 form-group mb-4">
+                                    <label for="Input-email">ایمیل <span class="text-danger ">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="Input-email">
+                                </div> {% endcomment %}
+                                <div class="area-btn-animate-S2 mt-5">
+                                    <button type="submit" class="btn-5">ادامه فرآیند</button>
+                                </div>
+
+
+                            </form>
+                            <!-- Default form contact -->
+                        </div>
+
+                        <div class="form-check my-4">
+                            <input type="checkbox" class="form-check-input ml-1" id="createaccount">
+                            <label class="form-check-label" for="createaccount"> ایجاد یک حساب
+                                کاربری؟</label>
+                        </div>
+
+
+                        <div class="form-group mb-5 area-create-account">
+                            <label for="Input-password">رمز عبور <span class="text-danger ">*</span>
+                            </label>
+                            <input type="password" class="form-control" id="Input-password">
+                        </div>
+
+
+                        <div class="area-shipping-fields form-check mb-4">
+                            <input type="checkbox" class="form-check-input ml-1" id="input-shipping">
+                            <label class="form-check-label" for="input-shipping"> حمل به آدرس دیگری</label>
+                        </div>
+
+
+                        <!-- form shipping-fields -->
+
+                        <div class="area-form-wrap area-formShippingFields">
+                            <!-- Default form contact -->
+                            <form action="#!">
+
+                                <div class="form-group mb-4">
+                                    <label for="Input-name">نام <span class="text-danger ">*</span>
+                                    </label>
+                                    {{form.first_name}}
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="Input-namefamily">نام خانوادگی <span class="text-danger ">*</span>
+                                    </label>
+                                    {{form.last_name}}
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="Input-address">آدرس <span class="text-danger ">*</span>
+                                    </label>
+                                    {{form.address}}
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="select-country-checkout">کشور <span class="text-danger ">*</span>
+                                    </label>
+                                    <div class="custom_select mb-3">
+                                        <select class="form-control col-12 " id="select-country-checkout">
+                                            <option value="">یک گزینه را انتخاب کنید ...</option>
+                                            <option value="AF"> افغانستان</option>
+                                            <option value="AL"> آلبانی</option>
+                                            <option value="DZ"> الجزایر</option>
+                                            <option value="AO"> آنگولا</option>
+                                            <option value="AI"> آنگولا</option>
+                                            <option value="AQ"> قطب جنوب</option>
+                                            <option value="AG"> آنتیگوا و باربودا</option>
+                                            <option value="AR"> آرژانتین</option>
+                                            <option value="AM"> ارمنستان</option>
+                                            <option value="AW"> آروبا</option>
+                                            <option value="AU"> استرالیا</option>
+                                            <option value="AT"> اتریش</option>
+                                            <option value="AZ"> آذربایجان</option>
+                                            <option value="BH"> بحرین</option>
+                                            <option value="BD"> بنگلادش</option>
+                                            <option value="BB"> باربادوس</option>
+                                            <option value="BY"> بلاروس</option>
+                                            <option value="BE"> بلژیک</option>
+                                            <option value="BZ"> بلیز</option>
+                                            <option value="BJ"> بنین</option>
+                                            <option value="BM"> برمودا</option>
+                                            <option value="BT"> بوتان</option>
+                                            <option value="BO"> بولیوی</option>
+                                            <option value="BA"> بوسنی و هرزگوین</option>
+                                            <option value="BW"> بوتسوانا</option>
+                                            <option value="BR"> برزیل</option>
+                                            <option value="IO"> قلمرو اقیانوس هند بریتانیا</option>
+                                            <option value="VG"> جزایر ویرجین بریتانیا</option>
+                                            <option value="BN"> برونئی</option>
+                                            <option value="BG"> بلغارستان</option>
+                                            <option value="BI"> بوروندی</option>
+                                            <option value="KH"> کامبوج</option>
+                                            <option value="CM"> کامرون</option>
+                                            <option value="CA"> کانادا</option>
+                                            <option value="CV"> کیپ ورد</option>
+                                            <option value="KY"> جزایر کیمن</option>
+                                            <option value="CF"> جمهوری آفریقای مرکزی</option>
+                                            <option value="TD"> چاد</option>
+                                            <option value="CL"> شیلی</option>
+                                            <option value="CN"> چین</option>
+                                            <option value="CX"> جزیره کریسمس</option>
+                                            <option value="CC"> جزایر کوکوس</option>
+                                            <option value="CO"> کلمبیا</option>
+                                            <option value="KM"> کومور</option>
+                                            <option value="CG"> کنگو</option>
+                                            <option value="CD"> کنگو</option>
+                                            <option value="CK"> جزایر کوک</option>
+                                            <option value="CR"> کاستاریکا</option>
+                                            <option value="HR"> کرواسی</option>
+                                            <option value="CU"> کوبا</option>
+                                            <option value="CW"> کورااائو</option>
+                                            <option value="CY"> قبرس</option>
+                                            <option value="CZ"> جمهوری چک</option>
+                                            <option value="DK"> دانمارک</option>
+                                            <option value="DJ"> جیبوتی</option>
+                                            <option value="DM"> دومینیکا</option>
+                                            <option value="DO"> جمهوری دومنیکن</option>
+                                            <option value="EC"> اکوادور</option>
+                                            <option value="EG"> مصر</option>
+                                            <option value="SV"> السالوادور</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="Input-city">شهر <span class="text-danger ">*</span>
+                                    </label>
+                                    {{form.city}}
+                                </div>
+                                
+
+                                <div class="form-group mb-4">
+                                    <label for="Input-codeposty">کد پستی <span class="text-danger ">*</span>
+                                    </label>
+                                    {{form.post_id}}
+                                </div>
+
+                            </form>
+                            <!-- Default form contact -->
+                        </div>
+
+                        <div class="area-additional-fields">
+                            <form action="#!">
+                                <h4 class="mb-3 mt-4 heading-style1">اطلاعات اضافی</h3>
+                                    <div class="form-group">
+                                            <textarea class="form-control" id="textarea-form" rows="5"
+                                                      placeholder="یاداشت های سفارش"></textarea>
+                                    </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-lg-4 py-5 col-bg-details-product ">
+
+
+                    <h4 class="mb-4 heading-style1">سفارشات شما</h4>
+                    <div class="area-order-review">
+                        <div class="table-wrapper-review-order mb-4">
+                            <table class="table mb-0">
+                                <thead>
+                                <tr>
+                                    <th>محصول</th>
+                                    <th>جمع</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in cart %}
+                                <tr>
+                                    <td>
+                                       {{item.products}}  <span class="product-qty"> {{item.count}} x</span></td>
+                                    <td>{{item.end_price}} تومان</td>
+                                </tr>
+                                {% endfor %}
+
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>جمع</th>
+                                    <td class="product-subtotal">{{total_price}} تومان</td>
+                                </tr>
+                                <tr>
+                                    <th>هزینه ارسال</th>
+                                    <td>ارسال رایگان</td>
+                                </tr>
+                                <tr>
+                                    <th>جمع</th>
+                                    <td class="product-subtotal">{{total_price}} تومان</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                        <div class="payment_method">
+                            <h4 class="mb-4 heading-style1">پرداخت</h4>
+                            <div class="payment_option">
+                                <div class="form-check  mb-3">
+                                    <input class="form-check-input ml-1" type="radio" name="inlineRadioOptions"
+                                           id="inlineRadio1" value="option1" checked>
+                                    <label class="form-check-label" for="inlineRadio1"> انتقال
+                                        مستقیم بانکی
+                                    </label>
+
+                                    <p id="payment-text1" class="panel-collapse  collapse show payment-text mt-2">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
+                                        طراحان گرافیک است.
+                                    </p>
+                                </div>
+
+
+                                <div class="form-check  mb-3">
+                                    <input class="form-check-input ml-1" type="radio" name="inlineRadioOptions"
+                                           id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">
+                                        پی پال
+                                    </label>
+
+                                    <p id="payment-text2" class="panel-collapse  collapse show payment-text mt-2">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
+                                        طراحان گرافیک است.
+                                    </p>
+                                </div>
+
+
+                                <div class="form-check  mb-3">
+                                    <input class="form-check-input ml-1" type="radio" name="inlineRadioOptions"
+                                           id="inlineRadio3" value="option3">
+                                    <label class="form-check-label" for="inlineRadio3">
+                                        پرداخت را بررسی کنید
+                                    </label>
+
+                                    <p id="payment-text3" class="panel-collapse  collapse show payment-text mt-2">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
+                                        طراحان گرافیک است.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="area-btn-animate-S2 mt-5">
+                            <button type="submit" class="btn-5">ادامه فرآیند</button>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

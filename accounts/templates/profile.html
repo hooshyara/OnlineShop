@@ -1,0 +1,1727 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block page_title %}
+    My Account
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/respansive.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!--refrence carousel-->
+    <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+    <!--refrence carousel-->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <!--refrence lightbox video-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <section>
+            <div class="bg-gradiant-account">
+                <div class="area-shape-bottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
+                        <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5 area-content-paccount">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                        <div class="sidebar-account ">
+                            <div class="avatar-user d-flex flex-column justify-content-center align-items-center mb-4">
+                                {% if request.user.profile_picture %}
+                                    <img class="img-avatar-user" src="{{ request.user.profile_picture.url }}">
+                                {% else %}
+                                    <img class="img-avatar-user" src="{% static 'images\download (1).png' %}">
+                                {% endif %}
+
+                                <div class="name-avatar-user">
+                                    <h4> {{ request.user.first_name }} {{ request.user.last_name }}</h4>
+                                </div>
+                            </div>
+                            <div class="account-menu d-none d-lg-block">
+                                <div class="nav flex-column nav-pills nav-pills-account-menu" id="v-pills-tab"
+                                     role="tablist" aria-orientation="vertical">
+                                    <button class="nav-link border-bottom-none ">
+                                        <h3>داشبورد</h3>
+                                    </button>
+
+                                    {% if request.user.is_superuser %}
+
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content22" type="button" role="tab"
+                                                aria-controls="content22"
+                                                aria-selected="false">
+                                            <i class='bx bx-user'></i>
+
+                                            کاربران
+                                            <span class="count-content-tab me-2">{{ user | length }}</span>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content2" type="button" role="tab"
+                                                aria-controls="content2"
+                                                aria-selected="false">
+                                            <i class='bx bxl-product-hunt'></i>
+                                            محصولات
+                                            <span class="count-content-tab me-2">{{ products | length }}</span>
+                                        </button>
+
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content4" type="button" role="tab"
+                                                aria-controls="content4"
+                                                aria-selected="true">
+                                            <i class="fal fa-cart-arrow-down  ms-2"></i>
+                                            اضافه کردن محصول
+                                        </button>
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content455" type="button" role="tab"
+                                                aria-controls="content455"
+                                                aria-selected="true">
+                                            <i class='bx bxs-category-alt'></i>
+                                            اضافه کردن دسته بندی
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content222" type="button" role="tab"
+                                                aria-controls="content222"
+                                                aria-selected="false">
+                                            <i class='bx bxl-blogger'></i>
+                                            وبلاگ
+                                            <span class="count-content-tab me-2">{{ blog | length }}</span>
+                                        </button>
+
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content44" type="button" role="tab"
+                                                aria-controls="content44"
+                                                aria-selected="true">
+                                            <i class='bx bx-comment-add'></i>
+                                            اضافه کردن وبلاگ
+                                        </button>
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1207" type="button" role="tab"
+                                                aria-controls="content1207"
+                                                aria-selected="true">
+                                            <i class="bx bx-history"></i>
+                                            تاریخچه سفارش کاربران
+                                            <span class="dropdown-user-account-meta">{{ order | length }}</span> </a></li>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1204" type="button" role="tab"
+                                                aria-controls="content222"
+                                                aria-selected="false">
+                                            <i class='bx bxs-message-rounded'></i>
+                                            تیکت ها
+                                            <span class="count-content-tab me-2">{{ ticket | length }}</span>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1205" type="button" role="tab"
+                                                aria-controls="content222"
+                                                aria-selected="false">
+                                            <i class='bx bxs-message'></i>
+                                            پیام ها
+                                            <span class="count-content-tab me-2">{{ contact | length }}</span>
+                                        </button>
+                                    {% else %}
+                                        <button class="nav-link  active" id="favorits-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1" type="button" role="tab"
+                                                aria-controls="content1"
+                                                aria-selected="false">
+                                            <i class="fal fa-heart ms-2"></i>علاقه مندی ها <span
+                                                class="dropdown-user-account-meta">{{ favorite | length }}</span>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content2" type="button" role="tab"
+                                                aria-controls="content2"
+                                                aria-selected="false">
+                                            <i class="fal fa-comment-alt ms-2"></i>
+                                            دیدگاهها
+                                            <span class="dropdown-user-account-meta">{{ comment | length }}</span>
+                                        </button>
+
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content4" type="button" role="tab"
+                                                aria-controls="content4"
+                                                aria-selected="true">
+                                            <i class="fal fa-cart-arrow-down  ms-2"></i>
+                                            سبد خرید
+                                            <span class="dropdown-user-account-meta">{{ my_cart | length }}</span> </a></li>
+                                        </button>
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1206" type="button" role="tab"
+                                                aria-controls="content1206"
+                                                aria-selected="true">
+                                            <i class="bx bx-history"></i>
+                                            تاریخچه سفارش ها
+                                            <span class="dropdown-user-account-meta">{{ order | length }}</span> </a></li>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content124" type="button" role="tab"
+                                                aria-controls="content222"
+                                                aria-selected="false">
+                                            <i class='bx bxs-message-rounded'></i>
+                                            تیکت ها
+                                            <span class="count-content-tab me-2">{{ ticket | length }}</span>
+                                        </button>
+                                        
+                                        <a href='{% url 'ticket:ticket' %}'>
+                                            <i class='bx bx-send'></i>
+                                            ارسال تیکت
+                                        </a>
+
+                                    {% endif %}
+
+
+                                    <button class="nav-link border-bottom-none">
+                                        <h3>تنظیمات حساب کاربری</h3>
+                                    </button>
+                                    <button class="nav-link" id="infoprofile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#content5" type="button" role="tab" aria-controls="content5"
+                                            aria-selected="false">
+                                        اطلاعات پروفایل
+                                    </button>
+                                    <button class="nav-link" id="changePassword-tab" data-bs-toggle="pill"
+                                            data-bs-target="#content6" type="button" role="tab" aria-controls="content6"
+                                            aria-selected="false">
+                                        تغییر
+                                        رمز عبور
+                                    </button>
+                                    <button class="nav-link" id="changTel-tab" data-bs-toggle="pill"
+                                            data-bs-target="#content7" type="button" role="tab" aria-controls="content7"
+                                            aria-selected="false">
+                                        تغییر
+                                        شماره تلفن
+                                    </button>
+                                    <button class="nav-link" id="setting-numberaccount-tab" data-bs-toggle="pill"
+                                            data-bs-target="#content8" type="button" role="tab" aria-controls="content8"
+                                            aria-selected="false">
+                                        تنظیمات شماره حساب
+                                    </button>
+
+                                    <button class="nav-link d-flex align-items-center justify-content-between"
+                                            id="notification-tab" data-bs-toggle="pill" data-bs-target="#content9"
+                                            type="button" role="tab" aria-controls="content9" aria-selected="false">
+                                        اعلان ها
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                                   id="flexSwitchCheckDefault">
+                                        </div>
+                                    </button>
+                                    <button class="nav-link" id="logout" type="button">
+                                        <i class="fal fa-sign-out-alt  ms-2"></i>خروج
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="area-account-menu-collapse d-block d-lg-none">
+                                <div class="area-btn-collapse-accountMenu  mb-4">
+                                    <a class="btn btn-5" data-bs-toggle="collapse" href="#area-account-menu"
+                                       role="button" aria-expanded="false" aria-controls="area-account-menu">
+                                        منو اکانت
+                                        <i class="fas fa-bars me-2"></i>
+                                    </a>
+                                </div>
+                                <div class="collapse account-menu" id="area-account-menu">
+                                    <div class="nav flex-column nav-pills nav-pills-account-menu" id="v-pills-tab"
+                                         role="tablist" aria-orientation="vertical">
+                                        <button class="nav-link border-bottom-none ">
+                                            <h3>داشبورد</h3>
+                                        </button>
+                                        <button class="nav-link active" id="favorits-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content1" type="button" role="tab"
+                                                aria-controls="content1"
+                                                aria-selected="false">
+                                            <i class="fal fa-heart ms-2"></i>علاقه مندی ها <span
+                                                class="dropdown-user-account-meta">{{ favorite| length }}</span>
+                                        </button>
+                                        <button class="nav-link" id="comment-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content2" type="button" role="tab"
+                                                aria-controls="content2"
+                                                aria-selected="false">
+                                            <i class="fal fa-comment-alt ms-2"></i>
+                                            دیدگاهها
+                                            <span class="dropdown-user-account-meta">5</span>
+                                        </button>
+                                        <button class="nav-link " id="contact-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content3" type="button" role="tab"
+                                                aria-controls="content9"
+                                                aria-selected="false">
+                                            <i class="fal fa-map-marker-alt  ms-2"></i>
+                                            نشانی ها
+                                            <span class="dropdown-user-account-meta">15000000</span>
+                                        </button>
+                                        <button class="nav-link " id="orders-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content4" type="button" role="tab"
+                                                aria-controls="content4"
+                                                aria-selected="true">
+                                            <i class="fal fa-cart-arrow-down  ms-2"></i>
+                                            سبد خرید
+                                            <span class="dropdown-user-account-meta">1</span> </a></li>
+                                        </button>
+                                        <button class="nav-link border-bottom-none">
+                                            <h3>تنظیمات حساب کاربری</h3>
+                                        </button>
+                                        <button class="nav-link" id="infoprofile-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content5" type="button" role="tab"
+                                                aria-controls="content5"
+                                                aria-selected="false">
+                                            اطلاعات پروفایل
+                                        </button>
+                                        <button class="nav-link" id="changePassword-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content6" type="button" role="tab"
+                                                aria-controls="content6"
+                                                aria-selected="false">
+                                            تغییر
+                                            رمز عبور
+                                        </button>
+                                        <button class="nav-link" id="changTel-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content7" type="button" role="tab"
+                                                aria-controls="content7"
+                                                aria-selected="false">
+                                            تغییر
+                                            شماره تلفن
+                                        </button>
+                                        <button class="nav-link" id="setting-numberaccount-tab" data-bs-toggle="pill"
+                                                data-bs-target="#content8" type="button" role="tab"
+                                                aria-controls="content8"
+                                                aria-selected="false">
+                                            تنظیمات شماره حساب
+                                        </button>
+                                        <button class="nav-link d-flex align-items-center justify-content-between"
+                                                id="notification-tab" data-bs-toggle="pill" data-bs-target="#content9"
+                                                type="button" role="tab" aria-controls="content9" aria-selected="false">
+                                            اعلان ها
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch"
+                                                       id="flexSwitchCheckDefault">
+                                            </div>
+                                        </button>
+                                        <button class="nav-link" id="logout" type="button">
+                                            <i class="fal fa-sign-out-alt  ms-2"></i>خروج
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <div class="tab-content tab-content-account-user" id="myTabContent">
+                            <div class="tab-pane fade show active" id="content1" role="tabpanel"
+                                 aria-labelledby="favorits-tab">
+
+                                {% if request.user.is_superuser %}
+                                    <div
+                                            class="header-tab-content-account d-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account ms-2">
+                                        </h1>
+
+                                    </div>
+                                {% else %}
+                                    <div
+                                            class="header-tab-content-account d-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account ms-2">
+                                            علاقه مندی ها
+                                            <span class="count-content-tab me-2">{{ favorite| length }}</span>
+                                        </h1>
+                                        <form>
+                                            <a href='{% url 'favorite:remove_all_wishlit' %}'
+                                               class="btn btn-remove-favorites"><i
+                                                    class="fas fa-trash-alt ms-2"></i>حذف همه
+                                            </a>
+                                        </form>
+                                    </div>
+                                {% endif %}
+                                <div class="row">
+
+                                    {% for item in favorite %}
+                                        <div
+                                                class="col-12   col-sm-6 col-md-4 col-lg-6 col-xl-4 mb_col_productNew d-flex justify-content-center">
+                                            <div class="product_cart product_cart-account">
+                                                <a class="card-floating-icon" href="#"> <i class="fas fa-trash-alt"></i></a>
+                                                <a href="#" class="card_product_img"><img
+                                                        src="{{ item.product.cover.url }}"
+                                                        class="img-fluid"></a>
+                                                <div class="body_card_product text-right">
+                                                    <a href="#">
+                                                        <h3>{{ item.product.title }}</h3>
+                                                    </a>
+                                                    <a href="{% url 'products:product_detail' item.product.id %}">
+                                                        <i class='bx bxs-bell-plus'></i>
+                                                        {{ item.product.inventory }} تا در انبار
+                                                        <h3></h3>
+                                                    </a>
+                                                    <div class="price_card_product">
+                                                        {% comment %} <del
+                                                                class="ms-1">{{ item.product.price}}تومان
+                                                        </del> {% endcomment %}
+                                                        <span>
+                                                        {{ item.product.price }}
+                                                        تومان</span></div>
+                                                </div>
+                                                <div
+                                                        class="card_footer_product d-flex justify-content-between align-items-center">
+                                                    <div class="star_rating">
+
+                                                        {% if item.product.star == '1' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.product.star == '2' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+
+
+
+                                                        {% endif %}
+                                                        {% if item.product.star == '3' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+
+
+
+                                                        {% endif %}
+                                                        {% if item.product.star == '4' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+
+
+
+                                                        {% endif %}
+                                                        {% if item.product.star == '5' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+
+
+                                                        {% endif %}
+                                                    </div>
+
+                                                    <div class="area_icon_cardFooter d-flex align-items-center">
+                                                        <a href="{% url 'cart:add_to_cart' item.product.id %}"
+                                                           class="p-0"><i class="fal fa-cart-plus"></i><span
+                                                                class="tooltip-site tooltip-cardFooter-account"> سبد
+                                                            خرید </span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                                <div class="social-Icon-singleProduct d-flex align-items-center ">
+                                    <span>اشتراک گذاری لیست: </span>
+                                    <div class="area-socialIcon d-flex me-3">
+                                        <a href="http://www.facebook.com" class="icon facebook"><span
+                                                class="tooltip-site">Facebook</span></a>
+                                        <a href="http://www.github.com" class="icon instegram"><span
+                                                class="tooltip-site">instegram</span></a>
+                                        <a href="http://www.dribble.com" class="icon linkedin"><span
+                                                class="tooltip-site">linkedin</span></a>
+                                        <a href="http://www.twitter.com" class="icon twitter"><span
+                                                class="tooltip-site">Twitter</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if request.user.is_superuser %}
+                                <div class="tab-pane fade" id="content2" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            محصولات
+                                        </h1>
+                                    </div>
+
+                                    <div class="row">
+
+                                        {% for item in products %}
+                                            <div
+                                                    class="col-12   col-sm-6 col-md-4 col-lg-6 col-xl-4 mb_col_productNew d-flex justify-content-center">
+                                                <div class="product_cart product_cart-account">
+                                                    <a class="card-floating-icon"
+                                                       href="{% url 'products:product_detail' item.id %}"> <i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                    <a href="{% url 'products:product_detail' item.id %}"
+                                                       class="card_product_img"><img
+                                                            src="{{ item.cover.url }}"
+                                                            class="img-fluid"></a>
+                                                    <div class="body_card_product text-right">
+                                                        <a href="#">
+                                                            <h3>{{ item.title }}</h3>
+                                                        </a>
+                                                        <a href="{% url 'products:product_detail' item.id %}">
+                                                            <i class='bx bxs-bell-plus'></i>
+                                                            {{ item.inventory }} تا در انبار
+                                                            <h3></h3>
+                                                        </a>
+
+                                                        <a href="#">
+                                                            <h3>{{ item.discouont }} درصد تخفیف</h3>
+                                                        </a>
+
+                                                        <div class="price_card_product">
+
+                                                            {% if item.discouont > 0 %}
+                                                                <del
+                                                                        class="ms-1">  {{ item.price }}تومان
+                                                                </del>
+                                                                <span> {{ item.second_price }} تومان</span>
+                                                            {% else %}
+                                                                <span> {{ item.price }} تومان</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                            class="card_footer_product d-flex justify-content-between align-items-center">
+                                                        <div class="star_rating">
+
+                                                            {% if item.star == '1' %}
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                            {% endif %}
+                                                            {% if item.star == '2' %}
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+
+
+
+                                                            {% endif %}
+                                                            {% if item.star == '3' %}
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+
+
+
+                                                            {% endif %}
+                                                            {% if item.star == '4' %}
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon"><i
+                                                                        class="far fa-star"></i></span>
+
+
+
+                                                            {% endif %}
+                                                            {% if item.star == '5' %}
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+                                                                <span class="star-icon star-icon-active"><i
+                                                                        class="far fa-star"></i></span>
+
+
+                                                            {% endif %}
+                                                        </div>
+                                                        {% if request.user.is_superuser %}
+                                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                                <a href="{% url 'products:delete_product' item.id %}"
+                                                                   class="p-0"><i class='bx bx-trash'></i><span
+                                                                        class="tooltip-site tooltip-cardFooter-account"> حذف 
+                                                             </span></a>
+                                                            </div>
+                                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                                <a href="{% url 'products:update_product' item.id %}"
+                                                                   class="p-0"><i class='bx bx-edit'></i><span
+                                                                        class="tooltip-site tooltip-cardFooter-account"> ویرایش 
+                                                             </span></a>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                                <a href="{% url 'cart:add_to_cart' item.id %}"
+                                                                   class="p-0"><i class="fal fa-cart-plus"></i><span
+                                                                        class="tooltip-site tooltip-cardFooter-account"> سبد
+                                                            خرید </span></a>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="content22" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            کاربران
+                                        </h1>
+                                    </div>
+
+
+
+
+                                    {% for item in user %}
+                                        {% comment %} </div> {% endcomment %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+
+
+                                                <div class="porofile_customers-comment d-flex align-items-center">
+                                                    {% if item.profile_picture %}
+                                                        <a href='{% url 'accounts:user_detail' item.id %}'>
+                                                            <img src="{{ item.profile_picture.url }}">
+
+                                                        </a>
+                                                    {% else %}
+                                                        <a href='{% url 'accounts:user_detail'  item.id %}'><img
+                                                                src="{% static 'images\download (1).png' %}"></a>
+                                                    {% endif %}
+                                                    <a href='{% url 'accounts:user_detail' item.id %}' class="mb-3">
+                                                        {{ item.first_name }} {{ item.last_name }}
+                                                    </a>
+                                                    <a href='{% url 'accounts:user_detail' item.id %}'
+                                                       class="porofileName">
+                                                        <h6>{{ item.mobile }}</h6>
+                                                    </a>
+                                                </div>
+                                                <div class="area_icon_cardFooter d-flex align-items-center">
+                                                    <a href="{% url 'accounts:user_detail'  item.id %}"
+                                                       class="p-0"><i class='bx bx-edit'></i><span>ویرایش</span></a>
+                                                </div>
+                                                <div class="area_icon_cardFooter d-flex align-items-center">
+                                                    <a href="{% url 'accounts:delete_user' item.id %}"
+                                                       class="p-0"><i class='bx bx-trash'></i><span>حذف</span></a>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="tab-pane fade" id="content222" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            وبلاگ ها
+                                        </h1>
+                                    </div>
+
+
+
+
+                                    {% for item in blog %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+
+                                                <p class="mb-3">
+                                                    {{ item.title }}
+                                                </p>
+
+                                                <div class="porofile_customers-comment d-flex align-items-center">
+                                                    {% if item.user.profile_picture %}
+                                                        <img src="{{ item.user.profile_picture.url }}">
+                                                    {% else %}
+                                                        <img class="img-avatar-user"
+                                                             src="{% static 'images\download (1).png' %}">
+                                                    {% endif %}
+                                                    <div class="porofileName">
+                                                        <h6> {{ item.user }}</h6>
+                                                        <span>{{ item.datetime_created | to_jalali:'%Y/%m/%d' }}  </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href="{% url 'blog:delete_blog' item.id %}"
+                                                   class="p-0"><i class='bx bx-trash'></i></a>
+                                            </div>
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href="{% url 'blog:update_blog' item.id %}"
+                                                   class="p-0"><i class='bx bx-edit'></i></a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="tab-pane fade" id="content1204" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            تیکت ها
+                                        </h1>
+                                        <form action='.' method='post'>
+                                            {% csrf_token %}
+                                            <input type='search' name='search' placeholder="کد رهگیری">
+                                        </form>
+                                    </div>
+
+
+
+
+                                    {% for item in ticket %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+
+                                                <p class="mb-3">
+                                                    {{ item.title }}
+                                                </p>
+
+                                                <a href='{% url 'ticket:ticket_detail' item.id %}'>
+                                                    <div class="porofile_customers-comment d-flex align-items-center">
+                                                        {% if item.user.profile_picture %}
+                                                            <img src="{{ item.user.profile_picture.url }}">
+                                                        {% else %}
+                                                            <img class="img-avatar-user"
+                                                                 src="{% static 'images\download (1).png' %}">
+                                                        {% endif %}
+                                                        <div class="porofileName">
+                                                            <h6> {{ item.user }}</h6>
+                                                            <span>{{ item.datetime_created | to_jalali:'%Y/%m/%d' }}  </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <p class="mb-3">
+                                                    {{ item.text }}
+                                                </p>
+                                                <p class="mb-3">
+                                                    اولویت: {{ item.priority }}
+                                                </p>
+
+                                            </div>
+
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href="{% url 'ticket:delete_ticket' item.id %}"
+                                                   class="p-0"><i class='bx bx-trash'></i></a>
+                                            </div>
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="tab-pane fade" id="content1205" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            پیام ها
+                                        </h1>
+                                    </div>
+
+
+
+
+                                    {% for item in contact %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+
+                                                <p class="mb-3">
+                                                    {{ item.name }}
+                                                </p>
+
+                                                <div class="porofile_customers-comment d-flex align-items-center">
+                                                    {% if item.user.profile_picture %}
+                                                        <img src="{{ item.user.profile_picture.url }}">
+                                                    {% else %}
+                                                        <img class="img-avatar-user"
+                                                             src="{% static 'images\download (1).png' %}">
+                                                    {% endif %}
+                                                    <div class="porofileName">
+                                                        <h6> {{ item.mobile }}</h6>
+                                                        <span>{{ item.datetime_created | to_jalali:'%Y/%m/%d' }}  </span>
+                                                    </div>
+                                                </div>
+                                                <p class="mb-3">
+                                                    {{ item.text }}
+                                                </p>
+
+
+                                            </div>
+
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href="{% url 'blog:delete_blog' item.id %}"
+                                                   class="p-0"><i class='bx bx-trash'></i></a>
+                                            </div>
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href="{% url 'blog:update_blog' item.id %}"
+                                                   class="p-0"><i class='bx bx-edit'></i></a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="tab-pane fade" id="content1207" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            تاریخچه سفارش ها  
+                                        </h1>
+                                    </div>
+                                    <a href='#'>
+                                        {% for item in orderItem %}
+                                            {{item.product}}
+                                        {% endfor %}
+                                        {% for item in order %}
+                                            {{item.user}}
+                                            
+                                        {% endfor %}
+                                    </a>
+ 
+                                </div>
+                                
+                            {% else %}
+                                <div class="tab-pane fade" id="content1206" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            تاریخچه سفارش ها  
+                                        </h1>
+                                    </div>
+                                    <a href='#'>
+                                        {% for item in orderItem %}
+                                            {{item.product}}
+                                        {% endfor %}
+                                        {% for item in order %}
+                                            {{item.code}}
+                                        {% endfor %}
+                                    </a>
+ 
+                                </div>
+                                <div class="tab-pane fade" id="content2" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            دیدگاهها
+                                            <span class="count-content-tab me-2">{{ comment | length }}</span>
+                                        </h1>
+                                        <div
+                                                class="box-select-sort d-flex align-items-center justify-content-start justify-content-sm-end">
+                                            <label class="lable-select-sort ms-2" for="FormCustomSelect">مرتب سازی
+                                                براساس:
+                                            </label>
+                                            <!-- <select class="custom-select " id="FormCustomSelect">
+                                                <option selected="">قدیمی ترین</option>
+                                                <option value="1">محبوب ترین</option>
+                                                <option value="2">رتبه بالا</option>
+                                                <option value="3">رتبه پایین</option>
+                                            </select> -->
+                                            <select class="form-select custom-select" id="FormCustomSelect"
+                                                    aria-label="Default select example">
+                                                <option selected="">قدیمی ترین</option>
+                                                <option value="1">محبوب ترین</option>
+                                                <option value="2">رتبه بالا</option>
+                                                <option value="3">رتبه پایین</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex align-items-center mb-4">
+                                        <div class="col-12 col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
+                                            <div class="rating-product">
+                                                <div class="star_rating-singleProduct d-flex mb-3">
+                                                    <div class="star_rating ms-3">
+                                                    <span class="star-icon star-icon-active"><i
+                                                            class="far fa-star"></i></span>
+                                                        <span class="star-icon star-icon-active"><i
+                                                                class="far fa-star"></i></span>
+                                                        <span class="star-icon star-icon-active"><i
+                                                                class="far fa-star"></i></span>
+                                                        <span class="star-icon star-icon-active"><i
+                                                                class="far fa-star"></i></span>
+                                                        <span class="star-icon"><i class="far fa-star"></i></span>
+                                                    </div>
+                                                    <span>
+                                                    امتیاز کلی
+                                                    <span>(4.2)</span>
+                                                </span>
+                                                </div>
+                                                <p>
+                                                    براساس 15 رای (80%)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-8 pr-md-4 pr-lg-3">
+                                            <div class="area-rating-progressbar">
+                                                <div class="item-rating-progressbar d-flex align-items-center mb-2">
+                                                    <div class="d-flex align-items-center ms-3">
+                                                        <i class="far fa-star"></i>
+                                                        <span class="me-1">5</span>
+                                                    </div>
+                                                    <div class="progress w-100 ms-3">
+                                                        <div class="progress-bar  progress-bar-striped progress-bar-animated"
+                                                             role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                             aria-valuemax="100"
+                                                             style="width: 75%;background-color:#ff6a00">
+                                                        </div>
+                                                    </div>
+                                                    <div class=""><span>5</span></div>
+                                                </div>
+                                                <div class="item-rating-progressbar d-flex align-items-center mb-2">
+                                                    <div class="d-flex align-items-center ms-3">
+                                                        <i class="far fa-star"></i>
+                                                        <span class="me-1">4</span>
+                                                    </div>
+                                                    <div class="progress w-100 ms-3">
+                                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+                                                             role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                             aria-valuemax="100" style="width: 25%"></div>
+                                                    </div>
+                                                    <div class=""><span>4</span></div>
+                                                </div>
+                                                <div class="item-rating-progressbar d-flex align-items-center mb-2">
+                                                    <div class="d-flex align-items-center ms-3">
+                                                        <i class="far fa-star"></i>
+                                                        <span class="me-1">3</span>
+                                                    </div>
+                                                    <div class="progress w-100 ms-3">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+                                                             role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                             aria-valuemax="100" style="width: 50%"></div>
+                                                    </div>
+                                                    <div class=""><span>3</span></div>
+                                                </div>
+                                                <div class="item-rating-progressbar d-flex align-items-center mb-2">
+                                                    <div class="d-flex align-items-center ms-3">
+                                                        <i class="far fa-star"></i>
+                                                        <span class="me-1">2</span>
+                                                    </div>
+                                                    <div class="progress w-100 ms-3">
+                                                        <div class="progress-bar  progress-bar-striped progress-bar-animated"
+                                                             role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                             aria-valuemax="100"
+                                                             style="width: 80%;background-color:#07a005;">
+                                                        </div>
+                                                    </div>
+                                                    <div class=""><span>2</span></div>
+                                                </div>
+                                                <div class="item-rating-progressbar d-flex align-items-center mb-2">
+                                                    <div class="d-flex align-items-center ms-3">
+                                                        <i class="far fa-star"></i>
+                                                        <span class="me-1">1</span>
+                                                    </div>
+                                                    <div class="progress w-100 ms-3">
+                                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                                             role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                             aria-valuemax="100" style="width: 50%"></div>
+                                                    </div>
+                                                    <div class=""><span>1</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {% for item in comment %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+                                                <div class="star_rating-item-comment d-flex mb-3">
+                                                    <div class="star_rating ms-3 ">
+
+                                                        {% if item.star == '1' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.star == '1' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.star == '2' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.star == '3' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.star == '4' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon"><i class="far fa-star"></i></span>
+                                                        {% endif %}
+                                                        {% if item.star == '5' %}
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+                                                            <span class="star-icon star-icon-active"><i
+                                                                    class="far fa-star"></i></span>
+
+                                                        {% endif %}
+                                                    </div>
+                                                    <h6 class="nameproduct-in-star-rating">
+                                                        <span>برای</span>
+                                                        <a href="{% url 'products:product_detail' item.product.id %}"> {{ item.product.title }}  </a>
+                                                    </h6>
+                                                </div>
+                                                <p class="mb-3">
+                                                    {{ item.text }}
+                                                </p>
+
+                                                <div class="porofile_customers-comment d-flex align-items-center">
+                                                    <img src="{{ request.user.profile_picture.url }}">
+                                                    <div class="porofileName">
+                                                        <h6> {{ request.user }}</h6>
+                                                        <span>{{ item.datetime_created | to_jalali:'%Y/%m/%d' }}  </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    {% endfor %}
+                                    <div
+                                            class="area-btnOldComment-show-namberofComment d-xl-flex  justify-content-xl-between  text-center p-0">
+                                        <div
+                                                class="box-show-namberofComment  mb-4 mb-xl-0  d-flex justify-content-center align-items-center ">
+                                            <span>نمایش 5 از 15 دیدگاه</span>
+                                            <div class="progress w-100 me-3">
+                                                <div class="progress-bar  progress-bar-striped progress-bar-animated"
+                                                     role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                     aria-valuemax="100"
+                                                     style="width: 75%;background-color:#766df4"></div>
+                                            </div>
+                                        </div>
+                                        <a class="btnOldComment" href="#">نمایش دیدگاههای قدیمی تر</a>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane fade" id="content124" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            تیکت ها
+                                        </h1>
+                                    </div>
+
+
+
+
+                                    {% for item in ticket %}
+                                        <div class="box-comments">
+                                            <div class="item-comment border-bottom pb-4 mb-4">
+
+                                                <p class="mb-3">
+                                                    {{ item.title }}
+                                                </p>
+
+                                                <a href='{% url 'ticket:ticket_detail' item.id %}'>
+                                                    <div class="porofile_customers-comment d-flex align-items-center">
+                                                        {% if item.user.profile_picture %}
+                                                            <img src="{{ item.user.profile_picture.url }}">
+                                                        {% else %}
+                                                            <img class="img-avatar-user"
+                                                                 src="{% static 'images\download (1).png' %}">
+                                                        {% endif %}
+                                                        <div class="porofileName">
+                                                            <h6> {{ item.user }}</h6>
+                                                            <span>{{ item.datetime_created | to_jalali:'%Y/%m/%d' }}  </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <p class="mb-3">
+                                                    {{ item.text }}
+                                                </p>
+                                                <p class="mb-3">
+                                                    اولویت: {{ item.priority }}
+                                                </p>
+
+                                            </div>
+
+                                            <div class="area_icon_cardFooter d-flex align-items-center">
+                                                <a href=""
+                                                   class="p-0"><i class='bx bx-trash'></i></a>
+                                            </div>
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="tab-pane fade" id="content3" role="tabpanel"
+                                 aria-labelledby="v-pills-messages-tab">
+                                <div class="header-tab-content-account  mb-4">
+                                    <h1 class="title-tabcontent-account">
+                                        نشانی ها
+                                    </h1>
+                                </div>
+                                <div class="profile-address-container">
+                                    <div class="profile-address-itemTop mb-3"> اهواز_ کوی مجاهد، کوچه هنر 4 پلاک 15
+                                    </div>
+                                    <div class="profile-address-content">
+                                        <ul>
+                                            <li>
+                                                <div class="profile-address-item profile-address-item-location mb-2"><i
+                                                        class="fal fa-map-marker-alt ms-2"></i>خوزستان، اهواز
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="profile-address-item profile-address-item-postalCode mb-2">
+                                                    <i class="far fa-envelope ms-2"></i>5624225648
+                                                </div>
+                                            </li>
+                                            </li>
+                                            <li>
+                                                <div class="profile-address-item profile-address-item-phone mb-2"><i
+                                                        class="fal fa-phone-alt ms-2"></i>09165252325
+                                                </div>
+                                            </li>
+                                            </li>
+                                            <li>
+                                                <div class="profile-address-item profile-address-item-name mb-2"><i
+                                                        class="fal fa-user ms-2"></i>فاطمه حمزه عوفی
+                                                </div>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="content4" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+
+                                {% if request.user.is_superuser %}
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+
+                                        <form action='{% url 'products:add_product' %}' method="POST"
+                                              enctype="multipart/form-data">
+
+                                            <div class="row">
+                                                <div class="form-group col-md-12 mb-4">
+                                                    <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                                        اضافه کردن محصول :
+                                                    </h1>
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> نام محصول</label>
+                                                    {{ add_form.title }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-12 mb-4">
+                                                    <label for="inputname"> توضیحات محصول</label>
+                                                    {{ add_form.content }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> موجودی محصول</label>
+                                                    {{ add_form.inventory }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> تخفیف محصول</label>
+                                                    {{ add_form.discouont }}
+
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> امتیاز محصول</label>
+                                                    {{ add_form.star }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> دسته بندی محصول</label>
+                                                    {{ add_form.category }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> قیمت محصول</label>
+                                                    {{ add_form.price }}
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="gridCheck">
+                                                            محصول موجود است؟
+                                                        </label>
+                                                        {{ add_form.active }}
+
+                                                    </div>
+                                                </div>
+                                                <div class="me-3 text-center text-sm-right">
+                                                    <button type="button" class="btn-chang-avatar"> {{ add_form.cover }}<i
+                                                            class="fal fa-repeat-alt me-2"></i></button>
+                                                </div>
+                                                {% csrf_token %}
+                                                <div class="area-btn-save">
+                                                    <button type="submit" class="btn btn-5"> اضافه کردن محصول<i
+                                                            class="far fa-sd-card me-2"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                {% else %}
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                            سبد خرید
+                                        </h1>
+                                        <div
+                                                class="box-select-sort d-flex align-items-center justify-content-start justify-content-sm-end">
+                                            <label class="lable-select-sort ms-2" for="FormCustomSelect">مرتب سازی
+                                                براساس:
+                                            </label>
+                                            <select class="form-select custom-select" id="FormCustomSelect"
+                                                    aria-label="Default select example">
+                                                <option selected="">همه</option>
+                                                <option value="1">در حال پردازش</option>
+                                                <option value="2">تحویل داده</option>
+                                                <option value="3">لغو شده ها</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        {% for item in cart %}
+                                            <div
+                                                    class="col-12   col-sm-6 col-md-4 col-lg-6 col-xl-4 mb_col_productNew d-flex justify-content-center">
+                                                <div class="product_cart product_cart-account">
+                                                    <a class="card-floating-icon" href="#"> <i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                    <a href="#" class="card_product_img"><img
+                                                            src="{{ item.products.cover.url }}"
+                                                            class="img-fluid"></a>
+                                                    <div class="body_card_product text-right">
+                                                        <a href="#">
+                                                            <h3>{{ item.products.title }}</h3>
+                                                        </a>
+                                                        <div class="price_card_product">
+                                                            {% comment %} <del
+                                                                class="ms-1">{{ item.product.price}}تومان
+                                                        </del> {% endcomment %}
+                                                            <span>
+                                                        {{ item.products.price }}
+                                                        تومان</span></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                {% endif %}
+
+
+                            </div>
+                            <div class="tab-pane fade" id="content455" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+
+                                {% if request.user.is_superuser %}
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+
+                                        <form action='{% url 'products:add_category' %}' method="POST"
+                                              enctype="multipart/form-data">
+
+                                            <div class="row">
+                                                <div class="form-group col-md-12 mb-4">
+                                                    <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+                                                        اضافه کردن دسته بندی :
+                                                    </h1>
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> دسته بندی محصولات</label>
+                                                    {{ add_category.name }}
+
+                                                </div>
+                                                {% csrf_token %}
+                                                <div class="area-btn-save">
+                                                    <button type="submit" class="btn btn-5"> اضافه کردن دسته بندی<i
+                                                            class="far fa-sd-card me-2"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                {% endif %}
+
+
+                            </div>
+                            <div class="tab-pane fade" id="content44" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+
+                                {% if request.user.is_superuser %}
+                                    <div
+                                            class="header-tab-content-account d-sm-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="title-tabcontent-account mb-3 mb-sm-0">
+
+                                        </h1>
+                                        <form action='{% url 'blog:add_blog' %}' method="POST"
+                                              enctype="multipart/form-data">
+
+                                            <div class="row">
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label for="inputname"> نام وبلاگ</label>
+                                                    {{ add_blog.title }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+                                                <div class="form-group col-md-12 mb-4">
+                                                    <label for="inputname"> توضیحات وبلاگ</label>
+                                                    {{ add_blog.content }}
+                                                    {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label" for="gridCheck">
+                                                            وبلاگ موجود است؟
+                                                        </label>
+                                                        {{ add_blog.is_active }}
+
+                                                    </div>
+                                                </div>
+                                                <div class="me-3 text-center text-sm-right">
+                                                    <button type="button" class="btn-chang-avatar"> {{ add_form.cover }}<i
+                                                            class="fal fa-repeat-alt me-2"></i></button>
+                                                </div>
+                                                {% csrf_token %}
+                                                <div class="area-btn-save">
+                                                    <button type="submit" class="btn btn-5"> اضافه کردن وبلاگ<i
+                                                            class="far fa-sd-card me-2"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+
+                                {% endif %}
+
+
+                            </div>
+                            <div class="tab-pane fade" id="content5" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+                                <div
+                                        class="header-tab-content-account d-flex justify-content-between align-items-center mb-4">
+
+                                    <h1 class="title-tabcontent-account">
+                                        اطلاعات حساب
+
+                                    </h1>
+                                    <form>
+                                        <button class="btn btn-remove-account" type="button"><i
+                                                class="fas fa-trash-alt ms-2"></i>حذف اکانت
+                                        </button>
+                                    </form>
+                                </div>
+                                <div
+                                        class="area-setting-avatar d-flex flex-column flex-sm-row  justify-content-center align-items-center p-4 mb-4">
+                                    <img class="img-avatar-user mb-3 mb-sm-0" src="images/img11.jpg">
+
+                                    <div class="me-3 text-center text-sm-right">
+                                        <button type="button" class="btn-chang-avatar">ویرایش آواتار<i
+                                                class="fal fa-repeat-alt me-2"></i></button>
+
+                                        <div class="description-avatar-user mt-2">
+                                            آپلود تصویر png, jpg ابعاد 300*300
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action='{% url 'accounts:updats_profile' %}' method='post'
+                                      enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputname">نام</label>
+                                            {{ form.first_name }}
+                                            {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                        </div>
+
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputname">نام خانوادگی</label>
+                                            {{ form.last_name }}
+                                            {% comment %} <input type="text" class="form-control" id="inputname"
+                                                   placeholder="{{ request.user.first_name }}"> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputbirth">تاریخ تولد</label>
+                                            {% comment %} <input type="date" class="form-control" id="inputbirth"
+                                                   placeholder=<p>{{ request.user.date_joined|to_jalali:'%y/%m/%d' }}</p>> {% endcomment %}
+                                            {{ form.born_dateTime }}
+                                            {% comment %} <form method="post">{% csrf_token %}
+                                                {{ form.as_p }}
+                                                <input type="submit">
+                                            </form> {% endcomment %}
+                                        </div>
+
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputState">جنسیت</label>
+                                            {{ form.gender }}
+
+                                            {% comment %} <select class="form-select custom-select" id="inputState"
+                                                    aria-label="Default select example">
+                                                <option selected>مرد</option>
+                                                <option>زن</option>
+                                            </select> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputEmail4">آدرس ایمیل</label>
+                                            {{ form.mobile }}
+                                            {% comment %} <input type="email" class="form-control" id="inputEmail4"
+                                                   placeholder="{{ request.user.email}}"> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inpustate">استان</label>
+                                            {{ form.province }}
+                                            {% comment %} <input type="text" class="form-control" id="inpustate"
+                                                   placeholder="{{request.user.province}}"> {% endcomment %}
+                                        </div>
+
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputsity">شهر</label>
+                                            {{ form.city }}
+                                            {% comment %} <input type="text" class="form-control" id="inputsity" placeholder="{{request.user.city}}"> {% endcomment %}
+                                        </div>
+
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputurl">آدرس</label>
+                                            {{ form.address }}
+                                            {% comment %} <input type="text" class="form-control" id="inputurl"
+                                                   placeholder="{{request.user.address}} "> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputurl">آدرس</label>
+                                            {{ form.profile_picture }}
+                                            {% comment %} <input type="text" class="form-control" id="inputurl"
+                                                   placeholder="{{request.user.address}} "> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputcodepost">کد پستی</label>
+                                            {{ form.post_id }}
+                                            {% comment %} <input type="text" class="form-control" id="inputcodepost"
+                                                   placeholder="{{request.user.post_id}}"> {% endcomment %}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-4">
+                                            <label for="inputcodemely">کدملی</label>
+                                            {{ form.national_id }}
+                                            {% comment %} <input type="text" class="form-control" id="inputcodemely"
+                                                   placeholder="{{request.user.national_id}}"> {% endcomment %}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-md-between align-items-center">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                                            <label class="form-check-label" for="gridCheck">
+                                                ایمیل من را به کاربران نمایش بده
+                                            </label>
+                                        </div>
+                                        {% csrf_token %}
+                                        <div class="area-btn-save">
+                                            <button type="submit" class="btn btn-5"> ذخیره تغییرات<i
+                                                    class="far fa-sd-card me-2"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="content6" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+                                <div class="header-tab-content-account  mb-4">
+                                    <h1 class="title-tabcontent-account">
+                                        تغییر رمز عبور
+                                    </h1>
+                                </div>
+                                <form action='{% url 'accounts:change_password' %}' method='post'>
+                                    <div class="pb-4 mb-4">
+                                        <div class="form-group">
+                                            <label for="input-passwordNew">پسورد جدید</label>
+                                            {% comment %} <input type="password" class="form-control inputpassword"
+                                                   id="input-passwordNew"> {% endcomment %}
+                                            {{ pass_form.password1 }}
+                                        </div>
+                                        <div class="form-check showPasswork-checkbox my-3 my-sm-0">
+                                            <input type="checkbox" class="form-check-input ms-1"
+                                                   id="checkbox-passwordNew" onclick="showPassword()">
+
+                                            <label class="form-check-label" for="checkbox-passwordNew">نمایش
+                                                رمز عبور</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="input-password-repetition">تکرار پسورد جدید</label>
+                                            {% comment %} <input type="password" class="form-control inputpassword-repetition"
+                                                   id="input-password-repetition"> {% endcomment %}
+                                            {{ pass_form.password2 }}
+
+                                        </div>
+                                        <div class="form-check showPasswork-checkbox my-3 my-sm-0">
+                                            <input type="checkbox" class="form-check-input ms-1"
+                                                   id="checkbox-password-repetition" onclick="showPassword2()">
+                                            <label class="form-check-label" for="checkbox-password-repetition">نمایش
+                                                رمز عبور</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end mt-4">
+                                        {% csrf_token %}
+                                        <div class="area-btn-save">
+                                            <button type="submit" class="btn btn-5"> ذخیره تغییرات<i
+                                                    class="far fa-sd-card me-2"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="content7" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+                                <div class="header-tab-content-account  mb-4">
+                                    <h1 class="title-tabcontent-account">
+                                        تغییر شماره تلفن
+                                    </h1>
+                                </div>
+                                <form>
+                                    <div class="mb-3 text-info">یک کد برای تایید این شماره برای شما ارسال خواهد شد</div>
+                                    <div class="form-group  mb-4">
+                                        <label for="input-change-numberphone">شماره تلفن خود را وارد کنید</label>
+                                        <input type="text" class="form-control" id="input-change-numberphone">
+                                    </div>
+                                    <div class="d-flex justify-content-end mt-4">
+                                        <div class="area-btn-save">
+                                            <button type="submit" class="btn btn-5"> ذخیره تغییرات<i
+                                                    class="far fa-sd-card me-2"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="content8" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+                                <div class="header-tab-content-account  mb-4">
+                                    <h1 class="title-tabcontent-account">
+                                        تغییر شماره حساب
+                                    </h1>
+                                </div>
+                                <div class="notification-changeNumberaccount mb-4">
+                                    <span class="text-danger bold">توجه: </span>
+                                    برای دریافت شماره شبای حساب خود می توانید به سایت بانک خود مراجعه کرده و نسبت یه
+                                    دریافت آنلاین شناسه شبای حساب خود اقدام نمایید.
+                                </div>
+                                <div class="text-info  notification-changeNumberaccount mb-4">
+
+                                    <span class="text-danger bold">توجه: </span>
+                                    مسئولیت اشتباه بودن اطلاعات بر عهده خود شما میباشد، و مبلغ واریزی قابل بازگشت
+                                    نمیباشد.
+                                </div>
+                                <form>
+                                    <div class="form-group mb-4">
+                                        <label for="input-account-ownerName">نام صحاب حساب</label>
+                                        <input type="text" class="form-control" id="input-account-ownerName"
+                                               placeholder="علی حمزه عوفی">
+                                    </div>
+                                    <div class="form-group  mb-4">
+                                        <label for="input-nameBank">نام بانک</label>
+                                        <input type="text" class="form-control" id="input-nameBank"
+                                               placeholder="بانک رفاه">
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="input-numberAccount">شماره حساب</label>
+                                        <input type="text" class="form-control" id="input-numberAccount"
+                                               placeholder="21523">
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="input-number-card">شماره کارت</label>
+                                        <input type="text" class="form-control" id="input-number-card"
+                                               placeholder="256454698652352">
+                                    </div>
+
+                                    <div class="form-group  mb-4">
+                                        <label for="input-numberShaba">شماره شبا</label>
+                                        <input type="text" class="form-control" id="input-numberShaba"
+                                               placeholder="26546512634541236541">
+                                    </div>
+
+                                    <div class="d-flex justify-content-end mt-4">
+
+                                        <div class="area-btn-save">
+                                            <button type="submit" class="btn btn-5"> ذخیره تغییرات<i
+                                                    class="far fa-sd-card me-2"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="content9" role="tabpanel"
+                                 aria-labelledby="v-pills-settings-tab">
+                                <div class="header-tab-content-account  mb-4">
+                                    <h1 class="title-tabcontent-account">
+                                        اعلان ها
+                                    </h1>
+                                </div>
+                                <div class="description-notification-account">
+                                    برای فعال و غیرفعال کردن همه اعلان ها از کلید اصلی در منوی اکانت استفاده کنید
+                                </div>
+                                <div class="area-content-options-notification  ">
+                                    <form>
+                                        <div class="area-options-notification border-bottom py-4">
+                                            <input type="checkbox" class="switch-checkbox ms-1"
+                                                   id="input-switch-checkbox" checked>
+                                            <label for="input-switch-checkbox">اعلان های فروخته شده محصول</label>
+                                            <div class="text-options-notification mt-2">هنگامی که شخصی یکی از محصولات من
+                                                را
+                                                خریداری کرد، ایمیل ارسال کنید
+                                            </div>
+                                        </div>
+
+                                        <div class="area-options-notification border-bottom py-4">
+                                            <input type="checkbox" class="switch-checkbox ms-1"
+                                                   id="input-switch-checkbox" checked>
+                                            <label for="input-switch-checkbox">اعلان های بروز رسانی محصول</label>
+                                            <div class="text-options-notification mt-2">با به روزرسانی محصول خریداری
+                                                شده، ایمیل
+                                                ارسال کنید
+                                            </div>
+                                        </div>
+                                        <div class="area-options-notification border-bottom py-4">
+                                            <input type="checkbox" class="switch-checkbox ms-1"
+                                                   id="input-switch-checkbox" checked>
+                                            <label for="input-switch-checkbox">اعلان های کامنت محصول</label>
+                                            <div class="text-options-notification mt-2">هنگامی که شخصی در مورد یکی از
+                                                محصولات
+                                                من نظر
+                                                می دهد ، ایمیل ارسال کنید
+                                            </div>
+                                        </div>
+                                        <div class="area-options-notification border-bottom py-4">
+                                            <input type="checkbox" class="switch-checkbox ms-1"
+                                                   id="input-switch-checkbox" checked>
+                                            <label for="input-switch-checkbox">اعلان بررسی محصول</label>
+                                            <div class="text-options-notification mt-2">وقتی کسی به محصولات امتیاز داد
+                                                یک ایمیل
+                                                ارسال کنید
+                                            </div>
+                                        </div>
+                                        <div class="area-options-notification border-bottom py-4">
+                                            <input type="checkbox" class="switch-checkbox ms-1"
+                                                   id="input-switch-checkbox" checked>
+                                            <label for="input-switch-checkbox">اعلان های فروخته شده محصول</label>
+                                            <div class="text-options-notification mt-2">هنگامی که شخصی یکی از محصولات من
+                                                را
+                                                خریداری کرد، ایمیل ارسال کنید
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-4">
+                                            <div class="area-btn-save">
+                                                <button type="submit" class="btn btn-5"> ذخیره تغییرات<i
+                                                        class="far fa-sd-card me-2"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+
+                let password = document.getElementsByName('password1')
+                password[0].className = 'form-control inputpassword-repetition'
+                let password2 = document.getElementsByName('password2')
+                password2[0].className = 'form-control inputpassword-repetition'
+            </script>
+    </div>
+
+
+
+{% endblock %}
